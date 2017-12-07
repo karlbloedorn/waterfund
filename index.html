@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<meta name="viewport" content="initial-scale=1">
+    <title data-i18n="appname-title"></title>
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' type='text/css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' type='text/css'>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" crossorigin=""/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Encode+Sans" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" />    
+    <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+ 
+     <canvas class='visible-lg-block visible-md-block' id="lineOverlay"></canvas>      
+       
+     <section id="introSection" class="full-screen">
+         
+        <select id="lang-select">
+                <option value="en">English</option>
+                <option value="es">Espanol</option>
+        </select>
+    
+        <video id="video"  loop="true"><!--poster="img/video_first_frame.png"-->
+
+        </video>
+        
+        <div id="titlecontent">
+            <span data-i18n="project_title"></span>
+            <h3><span data-i18n="project_subtitle"></span></h3>
+        </div>   
+    </section>
+    <section id="backgroundSection" class="partial-screen" style='position: relative;'>
+        <div class='section-header' data-i18n="background_title">
+        </div>
+        <div id='backgroundBody' class='left-only section_body'>
+            <div data-i18n="[html]background_body"></div>
+        </div>
+        <div id="map" class='visible-md-block visible-lg-block'></div>
+    </section>
+
+    <section class="partial-screen" >
+        <div class='section-header'>
+                Personal and Community Responsibility
+        </div>
+        <div class='left-only section_body person_card'>
+                <div class='pull-right'>
+                        <img id="profile_pic_guido_prado" src='people/Guido Prado.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+                </div>
+                
+                Guido joined Asobolo to do water conservation in his home property motivated by “the satisfaction to know that I am contributing something (…) and knowing that I have something to do with the tree that grew, the forest I have, and the birdies coming back to the area.” 
+
+                <a class="more-button">More</a>
+
+                 <div class='person_name'>Guido Prado</div>
+                 <div class="person_body hide">
+                        <br><br>
+                        <div data-i18n="[html]story_guido_prado"></div>  
+                        <a>Less</a>
+                        
+                </div>
+                
+                 <br>  <br>
+                 <div class="gallery">
+                    <a data-fancybox="guido" href="img/guido/DSC00314.JPG"><img  class='gallery-picture'  src="img/guido/DSC00314_tn.jpg" height='80'></a>
+                    <a data-fancybox="guido" href="img/guido/DSC00327.JPG"><img  class='gallery-picture'  src="img/guido/DSC00327_tn.jpg" height='80'></a>
+                    <a data-fancybox="guido" href="img/guido/DSC00330.JPG"><img  class='gallery-picture'  src="img/guido/DSC00330_tn.jpg" height='80'></a>
+                   <a data-fancybox="guido" href="img/guido/DSC00339.JPG"><img  class='gallery-picture hide'  src="img/guido/DSC00339_tn.jpg" height='80'></a>
+                    <a data-fancybox="guido" href="img/guido/DSC05334.JPG"><img  class='gallery-picture hide'  src="img/guido/DSC05334_tn.jpg" height='80'></a>
+                    <a data-fancybox="guido" href="img/guido/DSC05337.JPG"><img  class='gallery-picture hide'  src="img/guido/DSC05337_tn.jpg" height='80'></a>
+                    <a data-fancybox="guido" href="img/guido/P1010071.JPG"><img  class='gallery-picture hide'  src="img/guido/P1010071_tn.jpg" height='80'></a>
+                    <a data-fancybox="guido" href="img/guido/P1010941.JPG"><img  class='gallery-picture hide'  src="img/guido/P1010941_tn.jpg" height='80'></a>
+               
+                </div>
+               
+            
+        </div>   
+        <div class='left-only section_body person_card'>
+                <div class='pull-right'>
+                        <img id="profile_pic_humberto_prieto" src='people/Humberto Prieto.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+                </div>
+                “I do believe that it’s important to make people aware of the importance of watershed conservation and management, but I also believe that it is important to provide resources to do it and help the community out.”           
+                <div class='person_name'>Humberto Prieto</div>                
+        </div>        
+    </section>
+
+    <section class="partial-screen" >
+        <div class='section-header'>
+                Sustainability and Water Security
+        </div>
+        <div class='left-only section_body person_card'>
+            <div class='pull-right'>
+                    <img id="profile_pic_otania_ocuyame" src='people/Otonia Ocuyame.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            Making his “finca—ranch” sustainable motivates him to participate he describes his farm as one of the best “conserved of the zone and characterized by our concern for the environment.”
+            <div class='person_name'>Otoniel Ocuyame</div>        
+            <div class="person_body hide">
+                    <br><br>
+                    <div data-i18n="[html]story_otoniel_ocuyame"></div>                                                                                
+            </div>
+        </div>   
+        <div class='left-only section_body person_card'>
+            <div class='pull-right'>
+                    <img id="profile_pic_gustavo_trujillo" src='people/Trujillo.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            While he perceives that having springs in his property secures his water supply, he is also concerned about water security downstream. “I may always have water in my field because it emerges here, but I am conscious that water is needed downstream, not only for communities but also for other crops and livestock.” 
+            <div class='person_name'>Gustavo Trujillo</div>    
+            <div class="person_body hide">
+                    <br><br>
+                    <div data-i18n=""></div>                                                                                
+            </div>                                        
+        </div>   
+        <div class='left-only section_body person_card'>
+            <div class='pull-right'>
+                    <img id="profile_pic_ediberto_perea" src='people/Ediberto Perea.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            Making his land more sustainable by implementing a silvoparture system to “increase tree cover and soil cover” motivated him sign up for the program, “it has been a long overdue goal.”
+            <div class='person_name'>Ediberto Perea</div>           
+            <div class="person_body hide">
+                    <br><br>
+                    <div data-i18n="[html]story_ediberto_perea"></div>                                                                                
+            </div>     
+       </div>     
+        <div class='left-only section_body person_card'>
+            <div class='pull-right'>
+                    <img id="profile_pic_diego_marquez" src='people/Diego Marquez.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            The springs in Diego Marquez’s “finca—ranch” are the only water source supplying his land with water for irrigation needs, for his livestock to drink, and for his own domestic uses. Protecting his water sources with the help of Asobolo is his only tool to avoid “having to bring water in buckets from elsewhere,” if the springs go dry. 
+            <div class='person_name'>Diego Marquez</div>
+            <div class="person_body hide">
+                    <br><br>
+                    <div data-i18n="[html]story_diego_marquez"></div>                                                                                
+            </div>     
+         </div>           
+    </section>
+
+
+    <section class="partial-screen" >
+        <div class='section-header'>
+                Identity and Stewardship 
+            </div>
+        <div class='left-only section_body person_card'>
+            <div class='pull-right'>
+                    <img id="profile_pic_oscar_andres" src='people/Oscar Andres.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            For Mr. Oscar Andres, a rancher in the Bolo watershed, water scarcity concerns motivated him to join Asobolo as a strategy to secure water for his property. He perceives that this work has improved water supply for his property, “five years ago, water did not reach us—but now (after work with Asobolo) it does.” 
+            <div class='person_name'>Oscar Andres</div>
+            <div class="person_body hide">
+                    <br><br>
+                    <div data-i18n="[html]story_oscar_martinez"></div>                                                                                
+            </div>     
+        </div>   
+        <div class='left-only section_body person_card'>
+            <div class='pull-right'>
+                    <img id="profile_pic_indigenous_community" src='people/Indigenous Community.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            “We do conservation independently of any institution since centuries ago, and we do it because is our identity.” While the goal of Agua por la Vida has been to conserve water, they describe the importance of “conserving the harmony of the territory” between the air, the animals, the soil, water, and the mountains, all of whom they refer as “the big and younger brothers living inside the forest.”
+            <div class='person_name'>Indigenous Community</div> 
+            <div class="person_body hide">
+                    <br><br>
+                    <div data-i18n=""></div>                                                                                
+            </div>                   
+        </div>    
+        <div class='left-only section_body person_card'>
+            <div class='pull-right'>
+                    <img id="profile_pic_school" src='people/School.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            Immersed in the cloudiness of the forests, and next to a creek is Mercedes Abrego, one of Asobolo school-partners that teaches students about conservation. Students have learned to love nature, “the students don’t bring slingshots anymore,” which they used to kill birds, teacher Fabian, says, reflecting on students previous hostile attitudes towards wildlife.
+            <div class='person_name'>School</div>       
+            <div class="person_body hide">
+                    <br><br>
+                    <div data-i18n=""></div>                                                                                
+            </div>              
+        </div>    
+        <div class='left-only section_body person_card'>
+            <div class='pull-right'>
+                    <img id="profile_pic_naomi_beltran" src='people/Beltran.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            “We have to take advantage of the beauty we have here in Colombia; we have springs, forests, native species that other ranches no longer have,” Naomi says, pointing to her conservation values and her personal responsibility to protect nature in her property.
+            <div class='person_name'>Naomi Beltran</div>    
+            <div class="person_body hide">
+                    <br><br>
+                    <div data-i18n="[html]story_naomi_beltran"></div>                                                                                
+            </div>                 
+        </div>        
+    </section>
+
+    <section class="partial-screen" >
+        <div class='section-header'>
+                Leadership and work in the fund 
+            </div>
+        <div class='left-only section_body person_card'>
+            <div class='pull-right'>
+                    <img id="profile_pic_amalia_morales" src='people/Amalia.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            Amalia’s functions are diverse but, crucially important, has been Amalia’s dedication to weave water conservation with meaningful relationships with the community. “We can have all the money of the world, but, if the community does not want to work, the water fund would not exist.” 
+            <div class='person_name'>Dr. Amalia Morales</div>
+            <div class="person_body hide">
+                    <br><br>
+                    <div data-i18n=""></div>                                                                                
+            </div>     
+        </div>   
+        
+    </section>
+    <br><br>
+
+    <img id="logoSet" src='img/logos.png'>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/jquery.gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script src="lib/jquery.i18n.js"></script>
+    <script src="lib/jquery.i18n.messagestore.js"></script>
+    <script src="lib/jquery.i18n.fallbacks.js"></script>
+    <script src="lib/jquery.i18n.parser.js"></script>
+    <script src="lib/jquery.i18n.emitter.js"></script>
+    <script src="lib/jquery.i18n.language.js"></script>
+    <script src="lib/animation.gsap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>    
+    <script>
+        $(document).ready(function(){
+
+            var mapTriggers = [
+                {
+                    triggerElement : "#item_colombia",
+                    mapZoomLevel : 4,
+                    minLatitude : -5,
+                    maxLatitude : 15,
+                    minLongitude : -79.85,
+                    maxLongitude : -65.833,
+                    color: '#fec44f',
+                    leftLatitude : 4.166858,
+                    leftLongitude: -77.525039,
+                    pane : 'colombia'
+                },
+                {
+                    triggerElement : "#item_cauca_river",
+                    mapZoomLevel : 6,
+                    minLatitude : 0.9,
+                    maxLatitude : 5.30535,
+                    minLongitude : -78.213,
+                    maxLongitude : -75.48148,
+                    color: '#7fcdbb',
+                    pane: 'departments'
+                },                
+                {
+                    triggerElement : "#item_fifteen_watersheds",
+                    mapZoomLevel : 8,
+                    minLatitude : 2.649586,
+                    maxLatitude : 5.251170,
+                    minLongitude : -76.869759,
+                    maxLongitude : -75.70077,
+                    color: '#31a354',
+                    pane: 'fund'
+                },
+                {
+                    triggerElement : "#item_asobolo",
+                    mapZoomLevel : 8,
+                    minLatitude : 3.359586,
+                    maxLatitude : 3.601170,
+                    minLongitude : -76.469759,
+                    maxLongitude : -76.030077,
+                    color: '#c51b8a',
+                    pane: 'fund'
+                },
+            ];
+
+
+            var personTriggers = [
+            { 
+                latitude: 3.41959408, 
+                longitude: -76.24354223,
+                renderLines: false,
+                div: $("#profile_pic_amalia_morales"),
+             },
+             { 
+                latitude: 3.4785992,
+                longitude: -76.18185117,
+                renderLines: false,
+                div: $("#profile_pic_school"),
+             },
+             {
+                latitude: 3.382446533, 
+                longitude: -76.16795431,
+                renderLines: false,
+                div: $("#profile_pic_indigenous_community"),
+            },
+            { 
+                latitude: 3.480795636, 
+                longitude: -76.20952109,
+                renderLines: false,
+                div: $("#profile_pic_guido_prado"),
+            },
+            { 
+                latitude: 3.484917646, 
+                longitude: -76.18482255,
+                renderLines: false,
+                div: $("#profile_pic_humberto_prieto"),
+            },
+            {
+                latitude: 3.518703002, 
+                longitude: -76.20951816,
+                renderLines: false,
+                div: $("#profile_pic_naomi_beltran")
+            },
+            {
+                latitude: 3.518703002, 
+                longitude: -76.20951816, //TODO GET POINTS
+                renderLines: false,
+                div: $("#profile_pic_oscar_andres")
+            },
+            {
+                latitude: 3.518703002, 
+                longitude: -76.20951816,//TODO GET POINTS
+                renderLines: false,
+                div: $("#profile_pic_ediberto_perea")
+            },
+            {
+                latitude: 3.518703002, 
+                longitude: -76.20951816, //TODO GET POINTS
+                renderLines: false,
+                div: $("#profile_pic_gustavo_trujillo")
+            },
+            {
+                latitude: 3.518703002, 
+                longitude: -76.20951816,   //TODO GET POINTS
+                renderLines: false,
+                div: $("#profile_pic_otania_ocuyame")
+            } ,
+            {
+                latitude: 3.518703002, 
+                longitude: -76.20951816,   //TODO GET POINTS
+                renderLines: false,
+                div: $("#profile_pic_diego_marquez")
+            }
+
+
+         ];
+            
+            _.each(mapTriggers, function(item){
+                renderLines: false
+            });
+
+            var canvas = document.getElementById('lineOverlay');
+            canvas.width  = $(window).width();
+            canvas.height = $(window).height();
+            var ctx = canvas.getContext('2d');
+
+            function addGeoJsonToMap(map, filename, pane, styleFunc){
+                $.getJSON(filename, function(json) {
+                    var layer = L.geoJSON(json, {
+                        style: styleFunc,
+                        pane: pane
+                    }).addTo(map);
+                });
+            }
+
+            function renderLinesToMap(map){
+                var mapPos = $("#map").offset();
+                var yoffset = mapPos.top-window.scrollY;
+
+                ctx.canvas.width  = window.innerWidth;
+                ctx.canvas.height = window.innerHeight;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                _.each(personTriggers, function(item, index){
+                    if(item.renderLines == true){
+                        var pos = $(item.div).offset();
+                        var centerPoint = map.latLngToContainerPoint(L.latLng( item.latitude, item.longitude));
+                        ctx.beginPath();
+                        ctx.lineWidth = 3;
+                        ctx.strokeStyle = "#73b7ec";
+                        ctx.lineCap="round";
+                        ctx.moveTo(pos.left+100, pos.top+50-  $(window).scrollTop());
+                        ctx.lineTo(mapPos.left + centerPoint.x, yoffset+ centerPoint.y);
+                        ctx.stroke();
+                    }
+                });
+
+                _.each(mapTriggers, function(item,index){
+
+                    if(item.renderLines == true){
+                        var pos = $(item.mapTriggerCircle).offset();
+                        
+
+                        ctx.beginPath();
+                        ctx.lineWidth = 4;// 8*(1-e.progress/1.5);
+                        ctx.strokeStyle = item.color;
+                        ctx.lineCap="round";
+
+                        var itemWidth = $(item.mapTriggerCircle).width();
+
+                        //TODO conditionally skip if the bounds are not within the map, or fix partially bounded inclusions
+                        ctx.moveTo(pos.left+itemWidth-6, pos.top+15 -  $(window).scrollTop());
+                         
+                        if(item.centerLatitude != undefined){
+                            var centerPoint = map.latLngToContainerPoint(L.latLng( item.centerLatitude, item.centerLongitude));
+                            var leftPoint = map.latLngToContainerPoint(L.latLng( item.centerLatitude, item.leftLongitude));
+                            ctx.quadraticCurveTo((pos.left + mapPos.left)/2, 250 , mapPos.left + leftPoint.x,  yoffset+ leftPoint.y  );
+                            ctx.arc(mapPos.left + centerPoint.x, yoffset + centerPoint.y, Math.abs(centerPoint.x - leftPoint.x),  Math.PI, Math.PI+0.001  , true);
+                        } else if(item.leftLatitude != undefined){
+                            var leftPoint = map.latLngToContainerPoint(L.latLng( item.leftLatitude, item.leftLongitude));
+                            ctx.quadraticCurveTo((pos.left + mapPos.left)/2, 250 , mapPos.left + leftPoint.x,  yoffset+ leftPoint.y  );
+
+                        } else {
+                            var minPoint = map.latLngToContainerPoint(L.latLng( item.minLatitude, item.minLongitude));
+                            var maxPoint = map.latLngToContainerPoint(L.latLng( item.maxLatitude, item.maxLongitude));
+                            ctx.quadraticCurveTo((pos.left + mapPos.left)/2,250, mapPos.left + minPoint.x,  yoffset+ ((minPoint.y + maxPoint.y)/2)  );
+                            ctx.lineTo(mapPos.left + minPoint.x, yoffset+ minPoint.y);
+                            ctx.lineTo(mapPos.left + maxPoint.x, yoffset+ minPoint.y);
+                            ctx.lineTo(mapPos.left + maxPoint.x, yoffset+ maxPoint.y);
+                            ctx.lineTo(mapPos.left + minPoint.x, yoffset+ maxPoint.y);
+                            ctx.lineTo(mapPos.left + minPoint.x, yoffset+ ((minPoint.y + maxPoint.y)/2)   );
+                        }                           
+                        ctx.stroke();
+                    } else {
+                      //  console.log(item);
+                    }
+                }); 
+            }
+
+            $.i18n.debug = true;
+
+            var selectedLanguage = localStorage.getItem('language');
+            if(selectedLanguage != null){
+                $.i18n().locale = selectedLanguage;
+                $("#lang-select").val(selectedLanguage);
+            } else {
+                $.i18n().locale = 'en';
+            }
+
+            $.i18n().load( {
+                en: 'i18n/en.txt',
+                es: 'i18n/es.txt'
+             }).done( function() {
+                $('body').i18n();
+
+              
+
+
+                $(".person_card").click( function(e){
+                    console.log(e.target);
+                    if( $(e.target).hasClass('gallery-picture')){
+                        return;
+                    } 
+                    var child_body = $(this).children(".person_body");
+                    var more_button = $(this).children(".more-button");
+
+                    if(child_body.length == 1){
+                        
+                        if( $(child_body).hasClass('hide')){
+                            $(more_button).addClass('hide');
+                            $(child_body).removeClass('hide');
+                        } else {
+                            $(more_button).removeClass('hide');
+                            $(child_body).addClass('hide');
+                        }
+                    }
+                });
+
+                var controller = new ScrollMagic.Controller();
+                
+                // start playing the video background
+                var source = document.createElement('source');
+                source.setAttribute('src', 'https://bloedorn.blob.core.windows.net/waterfund7/vid/00020.mp4');
+                $("#video")[0].appendChild(source);
+                $("#video")[0].play();
+
+                // set up the language selector
+                $("#lang-select").bind('change', function() {
+                    localStorage.setItem('language', this.value);
+                    $.i18n().locale = this.value;
+                    $('body').i18n();
+                });
+
+                // stop the video if the window is navigating away.
+                $(window).bind('beforeunload', function(){
+                    var $media = $("#video");
+                    if (!$media.length) return;
+                    $media[0].pause();
+                    $media[0].src = '';
+                    $media.children('source').prop('src', '');
+                    $media.remove().length = 0;
+                });         
+
+                var map = L.map('map').setView([3.41, -76.24], 3);
+                L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+                }).addTo(map);
+                map.scrollWheelZoom.disable();
+
+                map.on('zoom', function (e) { 
+                    renderLinesToMap(map);
+                });
+
+                map.on('move', function (e) { 
+                    renderLinesToMap(map);
+                });
+
+                map.on('zoomstart', function(e){
+                    $("#lineOverlay").css('opacity', 0);
+                });
+                map.on('zoomend', function(e){
+                    renderLinesToMap(map);
+                    $("#lineOverlay").css('opacity', 1);
+                });
+
+                var mapScene = new ScrollMagic.Scene({
+                    triggerHook: "onLeave",
+                    triggerElement: "#backgroundSection", 
+                    duration: 0,
+                    reverse: true
+                })
+                .setPin("#map")
+                .addTo(controller);
+
+                $( window ).resize(function() {
+                    map.invalidateSize();
+                   // mapScene.refresh();
+                    renderLinesToMap(map);
+                });
+                
+                $(window).scroll(function() {
+                    renderLinesToMap(map);
+                });
+
+                var pane_colombia = map.createPane('colombia');
+                var pane_departments = map.createPane('departments');
+                var pane_fund = map.createPane('fund');
+                pane_fund.style.display = 'none';
+                pane_departments.style.display = 'none';
+                pane_colombia.style.display = 'none';
+
+                addGeoJsonToMap(map, "data/Col_limits.txt", 'colombia', function(){
+                    return {  
+                        weight: 4,
+                        opacity: 1,
+                        color: '#fec44f', 
+                        fillOpacity: 0.0,
+                    };
+                });
+
+                addGeoJsonToMap(map, "data/Dep_fondo.txt", 'departments', function(){
+                    return {  
+                        weight: 3,
+                        opacity: 1,
+                        color: '#7fcdbb', 
+                        fillOpacity: 0.0 
+                    };
+                });
+
+                addGeoJsonToMap(map, "data/Fondo_work_areas.txt", 'fund', function(feature, i){
+
+                    if(feature.properties.NOM_CUENCA === 'Bolo'){
+                        return  {  
+                            weight: 1, 
+                            opacity: 1,  
+                            color: 'white', 
+                            fillOpacity: 0.7,
+                            fillColor: "#c51b8a",
+                        };
+                    } else {
+                        return  {  
+                            weight: 1, 
+                            opacity: 1,  
+                            color: 'white', 
+                            fillOpacity: 0.7,
+                            fillColor: "#31a354",
+                        };  
+                    }
+                });
+
+                _.each(personTriggers, function(item, index){
+                    var duration = 200;
+                    new ScrollMagic.Scene({
+                        triggerHook: "onCenter",
+                        triggerElement: "#" + $(item.div).attr('id'), 
+                        reverse: true,
+                    })
+                    .on("enter", function (e) {
+                        item.renderLines = true;
+                        map.stop()	
+                        map.setView([3.41, -76.24], 10); 
+                    })
+                    .on("leave", function(e){
+                        item.renderLines = false;
+                    })
+                    .on("progress", function (e) {
+                        renderLinesToMap(map);
+                    })
+                    .duration(duration)
+                    .addTo(controller);
+
+                });
+                
+                _.each(mapTriggers, function(item,index){
+
+                    item.mapTriggerCircle = $("<span class='mapTriggerCircle' id='" + item.triggerElement + "_circle'></span>");
+                    $(item.mapTriggerCircle).text("○")
+                    $(item.triggerElement).after(item.mapTriggerCircle );
+                    
+                    //TODO does this need to be recalculated upon page width change reflow.
+                    // Can we use a fixed value and then limit to one at a time? 
+                    var duration = 200;
+                    if(index < mapTriggers.length-1){
+                        var nextTrigger = $(mapTriggers[index+1].triggerElement).offset();
+                        duration = nextTrigger.top - $(item.triggerElement).offset().top;
+                    } 
+                    new ScrollMagic.Scene({
+                        triggerHook: "onCenter",
+                        triggerElement: item.triggerElement, 
+                        reverse: true,
+                    })
+                    .on("enter", function (e) {
+                        map.getPane(item.pane).style.display = 'initial';
+                        item.renderLines = true;
+                        map.stop()	
+                        map.setView([3.41, -76.24], item.mapZoomLevel); 
+                        $(item.mapTriggerCircle).css('color', "#FFF");
+                    })
+                    .on("leave", function(e){
+                        item.renderLines = false;
+                        $(item.mapTriggerCircle).css('color', '#CCC');                       
+                    })
+                    .on("progress", function (e) {
+                        renderLinesToMap(map);
+                    })
+                    .duration(duration)
+                    .addTo(controller);
+
+                });
+            });        
+        });
+    </script>
+</body>
+</html>
+
