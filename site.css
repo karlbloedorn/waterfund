@@ -56,7 +56,7 @@ h1, p {
 }
 .section-header{
     padding-top: 30px;
-    font-size: 3em;
+    font-size: 2em;
     color: black;
     font-family: 'Encode Sans', sans-serif;
     background-size: fill;
@@ -116,9 +116,7 @@ h1, p {
     
     width: 100%;
 }      
-.person_name:before{
-    content: '- '
-}
+
 .person_name{
     margin-left: 30px;
     margin-top: 7px;
@@ -130,10 +128,13 @@ h1, p {
     cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
+    min-height: 150px;
 }
+
 .person_body{
     color: black;
     font-size: 0.8em;
+    padding-top: 2em;
 }
 .person_card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
