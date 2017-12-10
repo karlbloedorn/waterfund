@@ -40,7 +40,7 @@
 	"person_quote_naomi" : "We have to take advantage of the beauty we have here in Colombia; we have springs, forests, native species that other ranches no longer have,” Naomi says, pointing to her conservation values and her personal responsibility to protect nature in her property.",
 	"person_quote_trujillo" : "I may always have water in my field because it emerges here, but I am conscious that water is needed downstream, not only for communities but also for other crops and livestock",
 	"person_quote_diego" : "Protecting his water sources with the help of Asobolo is his only tool to avoid “having to bring water in buckets from elsewhere,” if the springs go dry, a concern especially during the summer.",
-	"person_quote_otoniel" : ": Otoniel Ocuyame describes his land as “the best known for their concern for the environment.” In school, he learned good practices to manage farms sustainably that inspired him to implement a silvopasture system with his own resources",
+	"person_quote_otoniel" : "Otoniel Ocuyame describes his land as “the best known for their concern for the environment.” In school, he learned good practices to manage farms sustainably that inspired him to implement a silvopasture system with his own resources",
 	"person_quote_ediberto" : "The challenges are bigger than just a lack of resources. For many “the culture here has been to clean the forest,” referring to years of intensive farming practices in which replacing forests with grasslands",
 	"person_quote_school" : "Water protection is not just work with farmers upstream; it is also a matter of creating a culture of conservation at both community and watershed levels."
 }

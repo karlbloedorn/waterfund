@@ -33,7 +33,6 @@
         </select>
     
         <video id="video"  loop="true"><!--poster="img/video_first_frame.png"-->
-
         </video>
         
         <div id="titlecontent">
@@ -57,15 +56,11 @@
         <!--Amalia-->
         <div class='left-only section_body person_card'> <!-- amalia -->
             <div class='pull-right'>
-                    <img id="profile_pic_amalia_morales" src='people/Amalia.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
+                    <img id="profile_pic_amalia" src='people/amalia.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
             </div>
-            <div>
-                <span data-i18n="person_quote_amalia"></span>                
-            </div>
-            <div class='person_name'>Dr. Amalia Morales</div>
-            <div class="person_body hide">
-                 <div data-i18n="[html]person_story_amalia"></div>                                                                                
-            </div>     
+            <div>"<span data-i18n="person_quote_amalia"></span>"</div>
+            <div class='person_name'>― Dr. Amalia Morales</div>
+            <div class="person_body hide" data-i18n="[html]person_story_amalia"></div>                                                                                
         </div>   
 
     </section>
@@ -73,182 +68,205 @@
         <div class='section-header'>
              <div data-i18n="section_header_2"></div>
         </div>
-        <!--Guido,school, Manuel, indigenous,-->
-        <div class='left-only section_body person_card'> <!--guido-->
+        <!--guido-->
+        <div class='left-only section_body person_card'> 
             <div class='pull-right'>
-                    <img id="profile_pic_guido_prado" src='people/Guido Prado.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+                <img id="profile_pic_guido" src='people/guido.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
             </div>
-            
             <div data-i18n="[html]person_quote_guido"></div>  
-            
-             <div class='person_name'>Guido Prado</div>
-             <div class="person_body hide">
-                    <div data-i18n="[html]person_story_guido"></div>  
-            </div>
-             <br> <br>
-             <div class="gallery">
-                <a data-fancybox="guido" href="img/guido/DSC00314.JPG"><img  class='gallery-picture'  src="img/guido/DSC00314_tn.jpg" height='80'></a>
-                <a data-fancybox="guido" href="img/guido/DSC00327.JPG"><img  class='gallery-picture'  src="img/guido/DSC00327_tn.jpg" height='80'></a>
-                <a data-fancybox="guido" href="img/guido/DSC00330.JPG"><img  class='gallery-picture'  src="img/guido/DSC00330_tn.jpg" height='80'></a>
-               <a data-fancybox="guido" href="img/guido/DSC00339.JPG"><img  class='gallery-picture hide'  src="img/guido/DSC00339_tn.jpg" height='80'></a>
-                <a data-fancybox="guido" href="img/guido/DSC05334.JPG"><img  class='gallery-picture hide'  src="img/guido/DSC05334_tn.jpg" height='80'></a>
-                <a data-fancybox="guido" href="img/guido/DSC05337.JPG"><img  class='gallery-picture hide'  src="img/guido/DSC05337_tn.jpg" height='80'></a>
-                <a data-fancybox="guido" href="img/guido/P1010071.JPG"><img  class='gallery-picture hide'  src="img/guido/P1010071_tn.jpg" height='80'></a>
-                <a data-fancybox="guido" href="img/guido/P1010941.JPG"><img  class='gallery-picture hide'  src="img/guido/P1010941_tn.jpg" height='80'></a>
-            </div>
+            <div class='person_name'>Guido Prado</div>
+            <div class="person_body hide" data-i18n="[html]person_story_guido"></div>  
+            <div class="gallery">
+                <a data-fancybox="guido" data-caption="Guido in the riparian forest he grew with the help of Asobolo." href="img/guido/DSC00314.JPG"><img class='gallery-picture' src="img/guido/DSC00314_tn.jpg" height='80'></a>
+                <!--<a data-fancybox="guido" data-caption="" href="img/guido/DSC00327.JPG"><img class='gallery-picture' src="img/guido/DSC00327_tn.jpg" height='80'></a>-->
+                <a data-fancybox="guido" data-caption="Guido and Asobolo’s Director, Amalia pose with one of the waterfall that he uses to replenish river waters with oxygen." href="img/guido/DSC00330.JPG"><img class='gallery-picture' src="img/guido/DSC00330_tn.jpg" height='80'></a>
+                <!--<a data-fancybox="guido" data-caption="" href="img/guido/DSC00339.JPG"><img class='gallery-picture hide'  src="img/guido/DSC00339_tn.jpg" height='80'></a>
+                <a data-fancybox="guido" data-caption="" href="img/guido/DSC05334.JPG"><img class='gallery-picture hide'  src="img/guido/DSC05334_tn.jpg" height='80'></a>
+                --><a data-fancybox="guido" data-caption="Guido and Asobolo’s Director, Amalia during reforestation projects in Guido’s property." href="img/guido/DSC05337.JPG"><img class='gallery-picture '  src="img/guido/DSC05337_tn.jpg" height='80'></a>
+                <a data-fancybox="guido" data-caption="Fences that protect the river that flow along Guido’s lands." href="img/guido/P1010071.JPG"><img class='gallery-picture '  src="img/guido/P1010071_tn.jpg" height='80'></a>
+                <!--<a data-fancybox="guido" data-caption="" href="img/guido/P1010941.JPG"><img class='gallery-picture hide'  src="img/guido/P1010941_tn.jpg" height='80'></a>
+                -->
+             </div>
         </div>
-        
-        <div class='left-only section_body person_card'> <!-- School -->
+        <!-- school -->
+        <div class='left-only section_body person_card'>
             <div class='pull-right'>
-                    <img id="profile_pic_school" src='people/School.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+                <img id="profile_pic_school" src='people/school.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
             </div>
             <div data-i18n="[html]person_quote_school"></div>                                                                                            
-            <div class='person_name'>School</div>       
-            <div class="person_body hide">
-                    <div data-i18n="[html]person_story_school"></div>                                                                                
-            </div>              
+            <div class='person_name'>Mercedes Abrego School</div>       
+            <div class="person_body hide" data-i18n="[html]person_story_school"></div>    
+            <div class="gallery">
+                <a data-fancybox="school" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="school" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="school" href=""><img class='gallery-picture' src="" height='80'></a>                
+            </div>                                                                      
         </div> 
-        <div class='left-only section_body person_card'> <!--Esteban-->
+        <!--esteban-->
+        <div class='left-only section_body person_card'> 
             <div class='pull-right'>
-                <img id="profile_pic_esteban" src='people/Esteban.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+                <img id="profile_pic_esteban" src='people/manuel.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
             </div>
             <div data-i18n="[html]person_quote_manuel"></div>                                                                                            
-
             <div class='person_name'>Manuel Esteban Guefias Salazar</div> 
-            <div class="person_body hide">
-                <div data-i18n="person_story_manuel"></div>                                                                                
-            </div>    
+            <div class="person_body hide" data-i18n="person_story_manuel"></div>     
+            <div class="gallery">
+                <a data-fancybox="manuel" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="manuel" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="manuel" href=""><img class='gallery-picture' src="" height='80'></a>                
+            </div>      
         </div>
-        <div class='left-only section_body person_card'> <!-- indigenous -->
+        <!-- community -->
+        <div class='left-only section_body person_card'> 
             <div class='pull-right'>
-                    <img id="profile_pic_indigenous_community" src='people/Indigenous Community.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+                <img id="profile_pic_community" src='people/community.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
             </div>
-            <div data-i18n="[html]person_quote_community"></div>                                                                                            
-            <div class='person_name'>Kwet Wala Indigenous Community</div> 
-            <div class="person_body hide">
-                 <div data-i18n="[html]person_story_community"></div>                                                                                
-            </div>                   
+            <div>"<span data-i18n="[html]person_quote_community"></span>"</div>                                                                                           
+            <div class='person_name'>― Kwet Wala Indigenous Community</div> 
+            <div class="person_body hide" data-i18n="[html]person_story_community"></div>  
+            <div class="gallery">
+                <a data-fancybox="community" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="community" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="community" href=""><img class='gallery-picture' src="" height='80'></a>                
+            </div>                                                                            
         </div>
     </section>
 
+    <!-- -->
     <section class="partial-screen" >
         <div class='section-header'>
              <div data-i18n="section_header_3"></div>
         </div>
-        <!-- Diego, Humberto, Oscar-->
-         
-        <div class='left-only section_body person_card'>   <!--diego-->
+         <!--diego-->
+        <div class='left-only section_body person_card'>   
             <div class='pull-right'>
-                    <img id="profile_pic_diego_marquez" src='people/Diego Marquez.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+                <img id="profile_pic_diego" src='people/diego.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
             </div>
             <div data-i18n="[html]person_quote_diego"></div>                                                                                            
             <div class='person_name'>Diego Marquez</div>
-            <div class="person_body hide">
-                    
-                    <div data-i18n="[html]person_story_diego"></div>                                                                                
-            </div>     
+            <div class="person_body hide" data-i18n="[html]person_story_diego"></div>  
+            <div class="gallery">
+                <a data-fancybox="diego" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="diego" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="diego" href=""><img class='gallery-picture' src="" height='80'></a>                
+             </div>                                                                             
         </div>  
-
-         <div class='left-only section_body person_card'> <!--humberto-->
+        <!--humberto-->
+         <div class='left-only section_body person_card'> 
             <div class='pull-right'>
-                    <img id="profile_pic_humberto_prieto" src='people/Humberto Prieto.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+                <img id="profile_pic_humberto" src='people/humberto.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
             </div>
             <div data-i18n="[html]person_quote_humberto"></div>                                                                                            
-            <div class='person_name'>Humberto Prieto</div>   '
+            <div class='person_name'>Humberto Prieto</div>  
+            <div class="person_body hide" data-i18n="[html]person_story_humberto"></div>    
+            <div class="gallery">
+                <a data-fancybox="humberto" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="humberto" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="humberto" href=""><img class='gallery-picture' src="" height='80'></a>                
+            </div>                                                                                          
         </div>       
-   
-         <div class='left-only section_body person_card'>  <!--oscar-->
+        <!--oscar-->
+         <div class='left-only section_body person_card'>  
             <div class='pull-right'>
-                    <img id="profile_pic_oscar_andres" src='people/Oscar Andres.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+                <img id="profile_pic_oscar" src='people/oscar.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
             </div>
             <div data-i18n="[html]person_quote_oscar"></div>                                                                                                        
             <div class='person_name'>Oscar Andres Martinez</div>
-            <div class="person_body hide">
-                    
-                    <div data-i18n="[html]person_story_oscar"></div>                                                                                
-            </div>     
+            <div class="person_body hide" data-i18n="[html]person_story_oscar"></div>   
+            <div class="gallery">
+                <a data-fancybox="oscar" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="oscar" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="oscar" href=""><img class='gallery-picture' src="" height='80'></a>                
+            </div>                                                                                               
         </div>      
     </section>
+
+    <!-- -->
     <section class="partial-screen" >
         <div class='section-header'>
              <div data-i18n="section_header_4"></div>
         </div>
-        <!-- Otoniel, Ediberto, Trujillo, Naomi --> 
-
-        <div class='left-only section_body person_card'>  <!--otania-->
+        <!--otania-->
+        <div class='left-only section_body person_card'>  
             <div class='pull-right'>
-                    <img id="profile_pic_otania_ocuyame" src='people/Otonia Ocuyame.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+                <img id="profile_pic_otania" src='people/otoniel.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
             </div>
             <div data-i18n="[html]person_quote_otoniel"></div>                                                                                            
-            <div class='person_name'>Otoniel Ocuyame</div>        
-            <div class="person_body hide">
-                    
-                    <div data-i18n="[html]person_story_otoniel"></div>                                                                                
-            </div>
+            <div class='person_name'>Otoniel Ocuyame</div>                            
+            <div class="person_body hide" data-i18n="[html]person_story_otoniel"></div>                                                                                
+            <div class="gallery">
+                <a data-fancybox="otoniel" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="otoniel" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="otoniel" href=""><img class='gallery-picture' src="" height='80'></a>                
+            </div> 
         </div>   
-
-        <div class='left-only section_body person_card'>   <!--ediberto-->
+        <!--ediberto-->
+        <div class='left-only section_body person_card'>  
             <div class='pull-right'>
-                    <img id="profile_pic_ediberto_perea" src='people/Ediberto Perea.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+                <img id="profile_pic_ediberto" src='people/ediberto.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
             </div>
             <div data-i18n="[html]person_quote_ediberto"></div>                                                                                            
             <div class='person_name'>Ediberto Perea</div>           
-            <div class="person_body hide">
-                    
-                    <div data-i18n="[html]person_story_ediberto"></div>                                                                                
-            </div>     
+            <div class="person_body hide" data-i18n="[html]person_story_ediberto"></div>
+            <div class="gallery">
+                <a data-fancybox="ediberto" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="ediberto" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="ediberto" href=""><img class='gallery-picture' src="" height='80'></a>                
+            </div>                                                                                 
        </div>     
-
-       
-       <div class='left-only section_body person_card'>  <!--trujillo-->
+        <!--trujillo-->
+       <div class='left-only section_body person_card'>  
             <div class='pull-right'>
-                    <img id="profile_pic_gustavo_trujillo" src='people/Trujillo.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+                <img id="profile_pic_trujillo" src='people/trujillo.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
             </div>
-            <div data-i18n="[html]person_quote_trujillo"></div>                                                                                
-            <div class='person_name'>Gustavo Trujillo Caicedo</div>    
-            <div class="person_body hide">
-                    
-                    <div data-i18n="[html]person_story_trujillo"></div>                                                                                
-            </div>                                        
+            <div><span data-i18n="[html]person_quote_trujillo"></span></div>
+            <div class='person_name'>― Gustavo Trujillo Caicedo</div>   
+            <div class="person_body hide" data-i18n="[html]person_story_trujillo"></div>   
+            <div class="gallery">
+                <a data-fancybox="trujillo" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="trujillo" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="trujillo" href=""><img class='gallery-picture' src="" height='80'></a>                
+            </div>                                                                              
         </div>   
-         
-        <div class='left-only section_body person_card'> <!--naomi-->
+        <!--naomi-->
+        <div class='left-only section_body person_card'> 
             <div class='pull-right'>
-                    <img id="profile_pic_naomi_beltran" src='people/Beltran.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+                <img id="profile_pic_naomi" src='people/naomi.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
             </div>
             <div data-i18n="[html]person_quote_naomi"></div>                                                                                
             <div class='person_name'>Naomi Catalina Beltran</div>    
-            <div class="person_body hide">
-                    
-                    <div data-i18n="[html]person_story_naomi"></div>                                                                                
-            </div>                 
+            <div class="person_body hide" data-i18n="[html]person_story_naomi"></div> 
+            <div class="gallery">
+                <a data-fancybox="naomi" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="naomi" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="naomi" href=""><img class='gallery-picture' src="" height='80'></a>                
+            </div>                                                                               
         </div>  
     </section>
+
+    <!--working for nature-->
     <section class="partial-screen" >
         <div class='section-header'>
              <div data-i18n="section_header_5"></div>
          </div>
-         <!--working for nature-->
-
-         <div class='left-only section_body person_card'> <!--naomi-->
+        <!--employees -->
+         <div class='left-only section_body person_card'> 
             <div class='pull-right'>
-                    <img id="profile_pic_employees" src='img/FFFFFF-0.8.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
+                <img id="profile_pic_employees" src='img/FFFFFF-0.8.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
             </div>
             <div data-i18n="[html]person_quote_employees"></div>                                                                                
             <div class='person_name'>Employees of the water fund</div>    
-            <div class="person_body hide" data-i18n="[html]person_story_employees"></div>                                                                                
+            <div class="person_body hide" data-i18n="[html]person_story_employees"></div>  
+            <div class="gallery">
+                <a data-fancybox="employees" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="employees" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="employees" href=""><img class='gallery-picture' src="" height='80'></a>                
+            </div>                                                                               
         </div>  
-         
-
-
     </section>
 
     <br>
-
-    
-
     <img id="logoSet" src='img/logos.png'>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
@@ -318,7 +336,7 @@
                 latitude: 3.41959408, 
                 longitude: -76.24354223,
                 renderLines: false,
-                div: $("#profile_pic_amalia_morales"),
+                div: $("#profile_pic_amalia"),
              },
              { 
                 latitude: 3.4785992,
@@ -330,55 +348,61 @@
                 latitude: 3.382446533, 
                 longitude: -76.16795431,
                 renderLines: false,
-                div: $("#profile_pic_indigenous_community"),
+                div: $("#profile_pic_community"),
             },
             { 
                 latitude: 3.480795636, 
                 longitude: -76.20952109,
                 renderLines: false,
-                div: $("#profile_pic_guido_prado"),
+                div: $("#profile_pic_guido"),
             },
             { 
                 latitude: 3.484917646, 
                 longitude: -76.18482255,
                 renderLines: false,
-                div: $("#profile_pic_humberto_prieto"),
+                div: $("#profile_pic_humberto"),
             },
             {
                 latitude: 3.518703002, 
                 longitude: -76.20951816,
                 renderLines: false,
-                div: $("#profile_pic_naomi_beltran")
+                div: $("#profile_pic_naomi")
+            }, 
+            {
+                latitude: 3.518703002, 
+                longitude: -76.20951816,//TODO GET POINTS
+                renderLines: false,
+                div: $("#profile_pic_esteban")
             },
             {
                 latitude: 3.518703002, 
                 longitude: -76.20951816, //TODO GET POINTS
                 renderLines: false,
-                div: $("#profile_pic_oscar_andres")
+                div: $("#profile_pic_oscar")
             },
             {
                 latitude: 3.518703002, 
                 longitude: -76.20951816,//TODO GET POINTS
                 renderLines: false,
-                div: $("#profile_pic_ediberto_perea")
+                div: $("#profile_pic_ediberto")
             },
             {
                 latitude: 3.518703002, 
                 longitude: -76.20951816, //TODO GET POINTS
                 renderLines: false,
-                div: $("#profile_pic_gustavo_trujillo")
+                div: $("#profile_pic_trujillo")
             },
             {
                 latitude: 3.518703002, 
                 longitude: -76.20951816,   //TODO GET POINTS
                 renderLines: false,
-                div: $("#profile_pic_otania_ocuyame")
+                div: $("#profile_pic_otania")
             } ,
             {
                 latitude: 3.518703002, 
                 longitude: -76.20951816,   //TODO GET POINTS
                 renderLines: false,
-                div: $("#profile_pic_diego_marquez")
+                div: $("#profile_pic_diego")
             }
 
 

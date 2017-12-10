@@ -118,9 +118,14 @@ h1, p {
 }      
 
 .person_name{
-    margin-left: 30px;
+    margin-left: 0px;
     margin-top: 7px;
     color: black;
+}
+.gallery-picture{
+    min-height: 98px;
+    min-width: 147px;
+    border: 1px solid #000;
 }
 .person_card{
     margin-bottom: 30px;
@@ -130,7 +135,10 @@ h1, p {
     transition: 0.3s;
     min-height: 150px;
 }
-
+.gallery{
+    margin-top: 1.5em;
+    
+}
 .person_body{
     color: black;
     font-size: 0.8em;
