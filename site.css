@@ -89,8 +89,10 @@ h1, p {
     width: auto; 
     height: auto; 
     z-index: -100;
+    background-image: url('img/DSC00562.JPG');
     background-size: cover;
     overflow: hidden;
+    
 }
 #titlecontent{
     color: white;
@@ -98,6 +100,9 @@ h1, p {
     font-size: 4em;
     padding-top:25vh;
     text-shadow: 2px 2px #000;
+}
+#lang_buttons{
+    padding-top: 5vh;
 }
 #introSection{
     text-align: center;

@@ -26,19 +26,24 @@
      <canvas class='visible-lg-block visible-md-block' id="lineOverlay"></canvas>      
        
      <section id="introSection" class="full-screen">
-         
-        <select id="lang-select">
-                <option value="en">English</option>
-                <option value="es">Espanol</option>
-        </select>
+
     
-        <video id="video"  loop="true"><!--poster="img/video_first_frame.png"-->
-        </video>
+        <div id='video'>
+        </div>
+
+        <!--
+        <video id="video"  loop="true">poster="img/video_first_frame.png"
+        </video>-->
         
         <div id="titlecontent">
             <span data-i18n="project_title"></span>
             <h3><span data-i18n="project_subtitle"></span></h3>
+            
         </div>   
+        <div id="lang_buttons">
+                <a class='btn btn-default' id='lang_english'>English</a>
+                <a class='btn btn-default' id='lang_espanol'>Español</a>
+        </div>
     </section>
     <section id="backgroundSection" class="partial-screen" style='position: relative;'>
         <div class='section-header' data-i18n="background_title">
@@ -497,7 +502,7 @@
             var selectedLanguage = localStorage.getItem('language');
             if(selectedLanguage != null){
                 $.i18n().locale = selectedLanguage;
-                $("#lang-select").val(selectedLanguage);
+                //$("#lang-select").val(selectedLanguage);
             } else {
                 $.i18n().locale = 'en';
             }
@@ -534,17 +539,24 @@
                 var controller = new ScrollMagic.Controller();
                 
                 // start playing the video background
-                var source = document.createElement('source');
+              /*  var source = document.createElement('source');
                 source.setAttribute('src', 'https://bloedorn.blob.core.windows.net/waterfund7/vid/00020.mp4');
                 $("#video")[0].appendChild(source);
-                $("#video")[0].play();
+                $("#video")[0].play();*/
 
                 // set up the language selector
-                $("#lang-select").bind('change', function() {
-                    localStorage.setItem('language', this.value);
-                    $.i18n().locale = this.value;
+                $("#lang_english").click(function() {
+                    localStorage.setItem('language', 'en');
+                    $.i18n().locale = 'en';
                     $('body').i18n();
                 });
+
+                 $("#lang_espanol").click(function() {
+                    localStorage.setItem('language', 'es');
+                    $.i18n().locale = 'es';
+                    $('body').i18n();
+                });
+               
 
                 // stop the video if the window is navigating away.
                 $(window).bind('beforeunload', function(){
