@@ -124,7 +124,6 @@ h1, p {
 }
 .gallery-picture{
     min-height: 98px;
-    min-width: 147px;
     border: 1px solid #000;
 }
 .person_card{
