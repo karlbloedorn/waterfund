@@ -22,19 +22,11 @@
     <link rel="stylesheet" href="site.css" />
 </head>
 <body>
- 
      <canvas class='visible-lg-block visible-md-block' id="lineOverlay"></canvas>      
-       
      <section id="introSection" class="full-screen">
-
-    
         <div id='video'>
         </div>
 
-        <!--
-        <video id="video"  loop="true">poster="img/video_first_frame.png"
-        </video>-->
-        
         <div id="titlecontent">
             <span data-i18n="project_title"></span>
             <h3><span data-i18n="project_subtitle"></span></h3>
@@ -67,8 +59,8 @@
             <div class='person_name'>― Dr. Amalia Morales</div>
             <div class="person_body hide" data-i18n="[html]person_story_amalia"></div>
             <div class="gallery">
-                <a data-fancybox="amalia" data-caption="Asobolo’s Director Amalia Morales and GIS analyst XXX outside their office in Pradera, Cali, Colombia."href="img/amalia/DSC00041.JPG"><img class='gallery-picture' src="img/amalia/DSC00041_tn.jpg" height='80'></a>
-                <a data-fancybox="amalia" data-caption="Amalia next to the fences that she helped build to protect the Bolo watershed."href="img/amalia/DSC00492.JPG"><img class='gallery-picture' src="img/amalia/DSC00492_tn.jpg" height='80'></a>
+                <a data-fancybox="amalia" data-translate-caption="caption_amalia_1" href="img/amalia/DSC00041.JPG"><img class='gallery-picture' src="img/amalia/DSC00041_tn.jpg" height='80'></a>
+                <a data-fancybox="amalia" data-translate-caption="caption_amalia_2" href="img/amalia/DSC00492.JPG"><img class='gallery-picture' src="img/amalia/DSC00492_tn.jpg" height='80'></a>
                
              </div>                                                                                
         </div>   
@@ -87,12 +79,12 @@
             <div class='person_name'>Guido Prado</div>
             <div class="person_body hide" data-i18n="[html]person_story_guido"></div>  
             <div class="gallery">
-                <a data-fancybox="guido" data-caption="Guido in the riparian forest he grew with the help of Asobolo." href="img/guido/DSC00314.JPG"><img class='gallery-picture' src="img/guido/DSC00314_tn.jpg" height='80'></a>
+                <a data-fancybox="guido" data-translate-caption="caption_guido_1" data-caption="Guido in the riparian forest he grew with the help of Asobolo." href="img/guido/DSC00314.JPG"><img class='gallery-picture' src="img/guido/DSC00314_tn.jpg" height='80'></a>
                 <!--<a data-fancybox="guido" data-caption="" href="img/guido/DSC00327.JPG"><img class='gallery-picture' src="img/guido/DSC00327_tn.jpg" height='80'></a>-->
                 <a data-fancybox="guido" data-caption="Guido and Asobolo’s Director, Amalia pose with one of the waterfall that he uses to replenish river waters with oxygen." href="img/guido/DSC00330.JPG"><img class='gallery-picture' src="img/guido/DSC00330_tn.jpg" height='80'></a>
                 <!--<a data-fancybox="guido" data-caption="" href="img/guido/DSC00339.JPG"><img class='gallery-picture hide'  src="img/guido/DSC00339_tn.jpg" height='80'></a>
                 <a data-fancybox="guido" data-caption="" href="img/guido/DSC05334.JPG"><img class='gallery-picture hide'  src="img/guido/DSC05334_tn.jpg" height='80'></a>
-                --><a data-fancybox="guido" data-caption="Guido and Asobolo’s Director, Amalia during reforestation projects in Guido’s property." href="img/guido/DSC05337.JPG"><img class='gallery-picture '  src="img/guido/DSC05337_tn.jpg" height='80'></a>
+                --><a data-fancybox="guido" data-caption="Guido and Asobolo’s Director, Amalia during a reforestation project in Guido’s property." href="img/guido/DSC05337.JPG"><img class='gallery-picture '  src="img/guido/DSC05337_tn.jpg" height='80'></a>
                 <a data-fancybox="guido" data-caption="Fences that protect the river that flow along Guido’s lands." href="img/guido/P1010071.JPG"><img class='gallery-picture '  src="img/guido/P1010071_tn.jpg" height='80'></a>
                 <!--<a data-fancybox="guido" data-caption="" href="img/guido/P1010941.JPG"><img class='gallery-picture hide'  src="img/guido/P1010941_tn.jpg" height='80'></a>
                 -->
@@ -357,12 +349,7 @@
                 renderLines: false,
                 div: $("#profile_pic_humberto"),
             },
-            {
-                latitude: 3.518703002, 
-                longitude: -76.20951816,
-                renderLines: false,
-                div: $("#profile_pic_naomi")
-            }, 
+            
             {
                 latitude: 3.518703002, 
                 longitude: -76.20951816,//TODO GET POINTS
@@ -495,14 +482,25 @@
                 $.i18n().locale = 'en';
             }
 
+            function updateCaptions(){
+                $(".gallery").children().each(function () {
+                    var captionKey =  $(this).data("translate-caption");
+                    if(captionKey != null){
+                        $(this).data("caption",  $.i18n(captionKey));
+                    } else {
+                        console.log(captionKey);
+                        $(this).data("caption",  'CAPTION NEEDED');
+                    }
+                });
+            }
+
             $.i18n().load( {
                 en: 'i18n/en.txt',
                 es: 'i18n/es.txt'
              }).done( function() {
                 $('body').i18n();
 
-              
-
+                updateCaptions();
 
                 $(".person_card").click( function(e){
                     console.log(e.target);
@@ -525,36 +523,22 @@
                 });
 
                 var controller = new ScrollMagic.Controller();
-                
-                // start playing the video background
-              /*  var source = document.createElement('source');
-                source.setAttribute('src', 'https://bloedorn.blob.core.windows.net/waterfund7/vid/00020.mp4');
-                $("#video")[0].appendChild(source);
-                $("#video")[0].play();*/
-
+ 
                 // set up the language selector
                 $("#lang_english").click(function() {
                     localStorage.setItem('language', 'en');
                     $.i18n().locale = 'en';
                     $('body').i18n();
+                    updateCaptions();
                 });
 
                  $("#lang_espanol").click(function() {
                     localStorage.setItem('language', 'es');
                     $.i18n().locale = 'es';
                     $('body').i18n();
+                    updateCaptions();
                 });
                
-
-                // stop the video if the window is navigating away.
-                $(window).bind('beforeunload', function(){
-                    var $media = $("#video");
-                    if (!$media.length) return;
-                    $media[0].pause();
-                    $media[0].src = '';
-                    $media.children('source').prop('src', '');
-                    $media.remove().length = 0;
-                });         
 
                 var map = L.map('map').setView([3.41, -76.24], 3);
                 L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
