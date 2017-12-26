@@ -47,41 +47,42 @@
 	"caption_amalia_5" : "Amalia during a workshop with a community.", 
 	"caption_amalia_6" : "A community partner of Asobolo during a participative mapping exercise.",
 	"caption_guido_1" : "Guido in the riparian forest he grew with the help of Asobolo.",
-	"caption_guido_2" : "Guido y la directora de Asobolo, Amalia en frente de la cascada que Guido usa para incrementar niveles de oxígeno en las aguas del rio que pasan por su propiedad.",
-	"caption_guido_3" : "El río Santa Clara que pasa por la propiedad de Guido y eventualmente alimenta al río Bolo.",
-	"caption_guido_4" : "Guido y la directora de Asobolo, Amalia durante los días de reforestación en la propiedad de Guido.",
-	"caption_guido_5" : "Cercos que protegen el río que fluye a través de la finca de Guido.",
+	"caption_guido_2" : "Guido and Asobolo’s Director, Amalia pose with one of the waterfall that he uses to replenish river waters with oxygen.",
+	"caption_guido_3" : "The Santa Clara River that passes by Guido’s property and eventually joins the Bolo River.",
+	"caption_guido_4" : "Guido and Asobolo’s Director, Amalia during reforestation projects in Guido’s property.",
+	"caption_guido_5" : "Fences that protect the river that flow along Guido’s lands.",
 	"caption_school_1" : "Teachers and students at the Mercedes Abrego School, one of Asobolo’s school partners working in environmental education.",
 	"caption_school_2" : "Asobolo’s Director, Amalia gives a talk on Earth’s Day.",
 	"caption_school_3" : "The school Mercedes Abrego in the Yellow Flowers community.",
 	"caption_school_4" : "Students of Mercedes Abrego School that participate in environmental education programs.",
-	"caption_manuel_1" : "Esteban showing some of his ornamental plants.",
-	"caption_manuel_2" : "View from Esteban’s farm.",
-	"caption_manuel_3" : "Orchids in Esteban’s farm.",
-	"caption_manuel_4" : "Esteban with native tree species that grow in his farm.", 
-	"caption_manuel_5" : "Esteban with personnel of Asobolo.",
+	"caption_esteban_1" : "Esteban showing some of his ornamental plants.",
+	"caption_esteban_2" : "View from Esteban’s farm.",
+	"caption_esteban_3" : "Orchids in Esteban’s farm.",
+	"caption_esteban_4" : "Esteban with native tree species that grow in his farm.", 
+	"caption_esteban_5" : "Esteban with personnel of Asobolo.",
 	"caption_community_1" : "Sacred stone and symbol of the Kwet Wala indigenous community.",
 	"caption_community_2" : "Member of the Kwet Wala community with the forest under their protection in the background.",
 	"caption_community_3" : "Members of Kwet Wala with Amalia, Asobolo’s Director and Pedro Moreno, Technical Director of Agua por la Vida, on top of the community’s sacred stone.",
 	"caption_community_4" : "Water that emerges in the lands of this community begins to be transported for communities downstream.",
 	"caption_community_5" : "One member of the Kwet Wala community holding an indigenous “beaton” and sacred symbol, used during gatherings.",
-	"caption_diego_1" : "Diego in his house farm."
-	"caption_diego_1" : "Diego checks one of the springs of his land, his only water resource.",
-	"caption_diego_1" : "Diego with his source water.",
-	"caption_diego_1" : "Diego with Asobolo’s Director, Amalia, with fences that protect water sources in the background.",
-	"caption_diego_1" : "Springs in Diego’s farm.",
+	"caption_diego_1" : "Diego in his house farm.",
+	"caption_diego_2" : "Diego checks one of the springs of his land, his only water resource.",
+	"caption_diego_3" : "Diego with his source water.",
+	"caption_diego_4" : "Diego with Asobolo’s Director, Amalia, with fences that protect water sources in the background.",
+	"caption_diego_5" : "Springs in Diego’s farm.",
 	"caption_humberto_1" : "Humberto in his banana plantation.",
 	"caption_humberto_2" : "View of the Cauca Valley from Humberto’s farm.",
 	"caption_humberto_3" : "Humberto’s farm with the blueprints of future ecological corridors where trees and other vegetation will grow to provide habitat for wildlife and increase sediment and nutrient retention in the farm.",
-	"caption_humberto_4" : "Humberto with his recently established ecological corridors.",
-	"caption_humberto_5" : "Sign in Humberto’s farm. \"It produces an immense sadness to think that nature speaks while the human kind does not listen.\"",
+	"caption_humberto_4" : "Humberto next to his recently implemented ecological corridors",
+	"caption_humberto_5" : "Humberto within the area of ​​ecological corridors of the farm",
+	"caption_humberto_6" : "Sign in Humberto’s farm. \"It produces an immense sadness to think that nature speaks while the human kind does not listen.\"",
 	"caption_oscar_1" : "Oscar in the pond that supplies his farm and the Bolo River and that he protects with the help of Asobolo.",
-	"caption_oscar_1" : "A riparian forest separates the farm’s water sources from grazing land.",
-	"caption_oscar_1" : "Oscar within the riparian forest limits where native species grow.",
-	"caption_oscar_1" : "Oscar in his farm and home.",
+	"caption_oscar_2" : "A riparian forest separates the farm’s water sources from grazing land.",
+	"caption_oscar_3" : "Oscar within the riparian forest limits where native species grow.",
+	"caption_oscar_4" : "Oscar in his farm and home.",
 	"caption_otoniel_1" : "Otoniel Ocuyame during an interview.",
-	"caption_otoniel_2" : "Workers in Otoniel’s finca during a tree-planting campaign with Asobolo.",
-	"caption_otoniel_3" : "Otoniel’s finca with a silvopasture system in its initial stages.",
+	"caption_otoniel_2" : "Workers in Otoniel’s farm during a tree-planting campaign with Asobolo.",
+	"caption_otoniel_3" : "Otoniel’s farm with a silvopasture system in its initial stages.",
 	"caption_otoniel_4" : "Ecological corridors in Otoniel’s farm.",
 	"caption_otoniel_5" : "Trees of the silvopasture system in the growing process.",
 	"caption_ediberto_1" : "Ediberto in his family farm that is composed by a silvopasture system.",
@@ -98,16 +99,5 @@
 	"caption_employee_2" : "Along with scientists from the Center for Research of Sugarcane (Cenicaña), Baudelino helps collect rainfall data.",
 	"caption_employee_3" : "Baudelino in one of the rivers where a monitoring station sits to control water quantity and quality.",
 	"caption_employee_4" : "Olga in her tree nursery that supplies Asobolo with trees for reforestation projects.",
-	"caption_employee_5" : "Fabiola Giron is another nursery keeper that Asobolo considers as an “indirect beneficiary” of the jobs created by conservation of watershed programs.",
-
-
-
-
-
-
-
-
-
-
-
+	"caption_employee_5" : "Fabiola Giron is another nursery keeper that Asobolo considers as an “indirect beneficiary” of the jobs created by conservation of watershed programs."
 }
