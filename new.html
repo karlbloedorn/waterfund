@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<meta name="viewport" content="initial-scale=1">
+    <title data-i18n="appname-title"></title>
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css">  
+    
+    <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' type='text/css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' type='text/css'>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" crossorigin=""/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Encode+Sans" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" />    
+    <link rel="stylesheet" href="site.css" />
+    <style>
+        .footer.segment {
+            padding: 5em 0em;
+         }
+    
+    </style>
+</head>
+<body class='modal-page'>
+    
+
+       
+        <div   id="modal"  class="ui longer modal">
+                <div class="header">
+                  
+                        Dr. Amalia Morales
+                </div>
+                <div class="scrolling image content">
+                  <div class="ui large rounded image">
+                        <img class='img-circle selected' src="people/square/amalia.png">
+                  </div>
+                  <div class="description">
+                    <p class=''><span data-i18n="[html]person_story_amalia"></span></p>
+                    <div class="gallery">
+                            <a data-fancybox="amalia" data-translate-caption="caption_amalia_1" href="img/amalia/DSC00041.JPG"><img class='gallery-picture' src="img/amalia/DSC00041_tn.jpg" height='80'></a>
+                            <a data-fancybox="amalia" data-translate-caption="caption_amalia_2" href="img/amalia/DSC00492.JPG"><img class='gallery-picture' src="img/amalia/DSC00492_tn.jpg" height='80'></a>
+                            <a data-fancybox="amalia" data-translate-caption="caption_amalia_3" href="img/amalia/101_1665.JPG"><img class='gallery-picture' src="img/amalia/101_1665_tn.jpg" height='80'></a>
+                            <a data-fancybox="amalia" data-translate-caption="caption_amalia_4" href="img/amalia/108_7672.JPG"><img class='gallery-picture' src="img/amalia/108_7672_tn.jpg" height='80'></a>
+                            <a data-fancybox="amalia" data-translate-caption="caption_amalia_5" href="img/amalia/DSC07261.JPG"><img class='gallery-picture' src="img/amalia/DSC07261_tn.jpg" height='80'></a>
+                            <a data-fancybox="amalia" data-translate-caption="caption_amalia_6" href="img/amalia/DSC07278.JPG"><img class='gallery-picture' src="img/amalia/DSC07278_tn.jpg" height='80'></a>
+                         </div>  
+                  </div>
+                </div>
+                <div class="actions">
+                  <div class="ui primary approve button">
+                    Close
+                    <i class="right chevron icon"></i>
+                  </div>
+                </div>
+              </div>
+
+  
+
+    
+     <canvas class='visible-lg-block visible-md-block' id="lineOverlay"></canvas>      
+     <section id="introSection" class="full-screen">
+        <div id='video'>
+        </div>
+        <div id="titlecontent">
+            <span data-i18n="project_title"></span>
+            <h3><span data-i18n="project_subtitle"></span></h3>
+            
+        </div>   
+        <div id="lang_buttons">
+                <button id='lang_english' class="ui black button">
+                        English
+                </button>
+                <button  id='lang_espanol' class="ui black button">
+                        Español
+                </button>
+        </div>
+    </section>
+    <br><br><br>
+
+    <div class="ui container">
+        <h2 class="ui header"><span data-i18n="background_title"></span></h2>
+    
+        <div class="ui segment">
+            <p><span data-i18n="[html]background_intro"></span></p>
+        </div>
+
+        <div class="ui segment">
+            <p><span data-i18n="[html]background_watersheds"></span></p>
+        </div>
+
+        <div class="ui segment">
+            <p><span data-i18n="[html]background_subwatersheds"></span></p>
+        </div>
+    </div>
+    <br><br>
+
+
+
+
+    <div class="ui container">
+        <h2 class="ui header">
+                <span data-i18n="section_header_1"></span>
+        </h2>
+        <div class="ui divided link items">
+                <div class="item">
+                  <div class="ui rounded small image">
+                        <img src="people/square/amalia.png">
+                  </div>
+                  <div class="content">
+                    <div class="header">Dr. Amalia Morales</div>
+                    <div class="description">
+                      <p>
+                            <span data-i18n="[html]person_quote_amalia"></span>
+                      </p>
+                    </div>
+                    <div class="extra">
+                        <div class="ui right floated button">
+                       <i class='chevron right icon'></i> <span class='learnmore' data-i18n='learn_more'></span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="ui rounded small image">
+                        <img src="people/square/esteban.png">
+                  </div>
+                  <div class="content">
+                    <div class="header">Manuel Esteban Guefias Salazar</div>
+                    <div class="description">
+                      <p><span data-i18n="[html]person_quote_manuel"></span>        </p>
+                    </div>
+                    <div class="extra">
+                            <div class="ui right floated button">
+                           <i class='chevron right icon'></i> <span class='learnmore' data-i18n='learn_more'></span>
+                            </div>
+                        </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="ui rounded small image">
+                        <img src="people/square/guido.png">
+                  </div>
+                  <div class="content">
+                    <div class="header">Guido Prado</div>
+                    <div class="description">
+                      <p>                           
+                           <span data-i18n="[html]person_quote_guido"></span>                            
+                      </p>
+                    </div>
+                    <div class="extra">
+                            <div class="ui right floated button">
+                           <i class='chevron right icon'></i> <span class='learnmore' data-i18n='learn_more'></span>
+                            </div>
+                        </div>
+                  </div>
+                </div>
+              </div>
+
+              <h2 class="ui header">
+                    <span data-i18n="section_header_1"></span>
+            </h2>
+
+        <div class="ui five doubling cards">
+            <div class="ui card">
+                <div class="image">
+                    <img src="people/square/amalia.png">
+                </div>
+                <div class="content">
+                    <div class="header">Dr. Amalia Morales
+                    </div>
+                    <div class="description">
+                        <span data-i18n="[html]person_quote_amalia"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="ui container">
+        <h2 class="ui header">
+                <span data-i18n="section_header_2"></span>
+        </h2>
+            
+        <div class="ui five doubling cards">    
+            <div class="ui card">
+                <div class="image">
+                    <img src="people/square/guido.png">
+                </div>
+                <div class="content">
+                    <div class="header">Guido Prado</div>
+                    <div class="description">
+                            <span data-i18n="[html]person_quote_guido"></span>                            
+                    </div>
+                </div>
+            </div>      
+            <div class="ui card">
+                <div class="image">
+                    <img src="people/square/esteban.png">
+                </div>
+                <div class="content">
+                    <div class="header">Manuel Esteban Guefias Salazar</div>
+                    <div class="description">
+                            <span data-i18n="[html]person_quote_manuel"></span>                            
+                    </div>
+                </div>
+            </div>    
+            <div class="ui card">
+                <div class="image">
+                    <img src="people/square/school.png">
+                </div>
+                <div class="content">
+                    <div class="header">Mercedes Abrego School</div>
+                    <div class="description">
+                            <span data-i18n="[html]person_quote_school"></span>                                
+                    </div>
+                </div>
+            </div>
+            <div class="ui card">
+                <div class="image">
+                    <img src="people/square/community.png">
+                    </div>
+                    <div class="content">
+                        <div class="header">Kwet Wala Community</div>
+                        <div class="description">
+                            <span data-i18n="[html]person_quote_community"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="ui container">
+        <h2 class="ui header">
+                <span data-i18n="section_header_3"></span>
+        </h2>
+        <div class="ui five doubling cards">   
+            <div class="ui card">
+                <div class="image">
+                    <img src="people/square/diego.png">
+                </div>
+                <div class="content">
+                    <div class="header">Diego Marquez</div>
+                    <div class="description">
+                        <span data-i18n="[html]person_quote_diego"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui card">
+                <div class="image">
+                    <img src="people/square/humberto.png">
+                </div>
+                <div class="content">
+                    <div class="header">Humberto Prieto</div>
+                    <div class="description">
+                        <span data-i18n="[html]person_quote_humberto"></span>                            
+                    </div>
+                </div>
+            </div>
+            <div class="ui card">
+                <div class="image">
+                    <img src="people/square/oscar.png">
+                </div>
+                <div class="content">
+                    <div class="header">Oscar Andres</div>
+                    <div class="description">
+                        <span data-i18n="[html]person_quote_oscar"></span>                            
+                    </div>
+                </div>
+            </div>           
+        </div>
+    </div>
+
+    <br><br>
+    <div class="ui container">
+        <h2 class="ui header">
+                <span data-i18n="section_header_4"></span>
+        </h2>
+        <div class="ui five doubling cards"> 
+            <div class="card">
+                <div class="image">
+                    <img src="people/square/otoniel.png">
+                </div>
+                <div class="content">
+                    <div class="header">Otoniel Ocuyame</div>
+                    
+                    <div class="description">
+                            <span data-i18n="[html]person_quote_otoniel"></span>                                            
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img src="people/square/ediberto.png">
+                </div>
+                <div class="content">
+                    <div class="header">Ediberto Perea</div>
+                    <div class="description">
+                            <span data-i18n="[html]person_quote_ediberto"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    <img src="people/square/trujillo.png">
+                </div>
+                <div class="content">
+                    <div class="header">Gustavo Trujillo Caicedo</div>
+                
+                    <div class="description">
+                            <span data-i18n="[html]person_quote_trujillo"></span>                                                
+                    </div>
+                </div>
+            </div>             
+        </div>
+    </div>
+    <br><br>
+    <div class="ui container">
+        <h2 class="ui header">
+                <span data-i18n="section_header_5"></span>
+        </h2>
+        <div class="ui five doubling cards">
+            <div class="card">
+                <div class="image">
+                    <img src="people/square/guido.png">
+                </div>
+                <div class="content">
+                    <div class="header">Temp</div>
+                    
+                    <div class="description">
+                    </div>
+                </div>
+            </div>             
+        </div>
+    </div>
+    <br>
+    <br>        
+    <br>
+    <center>
+        <div class="ui small images">
+            <a href="https://www.naturalcapitalproject.org/" class="ui medium image">
+                <img style="width:128px;height:128px;" class="ui medium image" src="img/logos/logo_natcap.png"/>
+            </a>
+            <a href="http://environment.umn.edu/" class="ui medium image">
+                <img style="width:128px;height:128px;" class="ui medium image" src="img/logos/logo_ione.png"/>
+            </a>
+            <img style="width:128px;height:128px;" class="ui medium image" src="img/logos/logo_fondo_de_agua.png"/>
+            <a href="https://twitter.com/asobolo?lang=en" class="ui medium image">
+                <img style="width:128px;height:128px;" class="ui medium image" src="img/logos/logo_asobolo.png"/>
+            </a>
+            <a href="https://woods.stanford.edu/" class="ui medium image">
+                <img style="width:128px;height:128px;" class="ui medium image" src="img/logos/logo_stanford.png"/>
+            </a>
+        </div>
+    </center>
+    <br>
+
+    <div class="ui inverted vertical footer segment">
+        <div class="ui container">
+            <div class="ui stackable inverted divided equal height stackable grid">
+            <div class="three wide column">
+                <h4 class="ui inverted header">About</h4>
+                <div class="ui inverted link list">
+                <a href="#" class="item">Contact Us</a>
+                <a href="#" class="item">Funding</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header">Social Media</h4>
+                <div class="ui inverted link list">
+                    
+                </div>
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header">Footer Header</h4>
+                <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/jquery.gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script src="lib/jquery.i18n.js"></script>
+    <script src="lib/jquery.i18n.messagestore.js"></script>
+    <script src="lib/jquery.i18n.fallbacks.js"></script>
+    <script src="lib/jquery.i18n.parser.js"></script>
+    <script src="lib/jquery.i18n.emitter.js"></script>
+    <script src="lib/jquery.i18n.language.js"></script>
+    <script src="lib/animation.gsap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>    
+    <script>
+        $(document).ready(function(){
+            $(".card").append("<div class='ui bottom attached button'><i class='chevron right icon'></i> <span class='learnmore' data-i18n='learn_more'></span></div>");
+            
+            $.i18n.debug = true;
+
+            var selectedLanguage = localStorage.getItem('language');
+            if(selectedLanguage != null){
+                $.i18n().locale = selectedLanguage;
+                //$("#lang-select").val(selectedLanguage);
+            } else {
+                $.i18n().locale = 'en';
+            }
+
+            function updateCaptions(){
+                $(".gallery").children().each(function () {
+                    var captionKey =  $(this).data("translate-caption");
+                    if(captionKey != null){
+                        $(this).data("caption",  $.i18n(captionKey));
+                    } else {
+                        console.log(captionKey);
+                        $(this).data("caption",  'CAPTION NEEDED');
+                    }
+                });
+                $('.learnmore').i18n();
+            }
+            /*function scrollToBody(){
+                $('html, body').delay(800).animate({
+                    scrollTop: $("#backgroundSection").offset().top
+                }, 1000, 'easeInOutQuad');
+            }*/
+
+            $.i18n().load( {
+                en: 'i18n/en.txt',
+                es: 'i18n/es.txt'
+             }).done( function() {
+                $('body').i18n();
+                $('#modal').modal('show');
+
+                updateCaptions();
+
+                $(".person_card").click( function(e){
+                    console.log(e.target);
+                    if( $(e.target).hasClass('gallery-picture')){
+                        return;
+                    } 
+                    var child_body = $(this).children(".person_body");
+                    var more_button = $(this).children(".more-button");
+
+                    if(child_body.length == 1){
+                        
+                        if( $(child_body).hasClass('hide')){
+                            $(more_button).addClass('hide');
+                            $(child_body).removeClass('hide');
+                        } else {
+                            $(more_button).removeClass('hide');
+                            $(child_body).addClass('hide');
+                        }
+                    }
+                });
+
+                var controller = new ScrollMagic.Controller();
+ 
+                // set up the language selector
+                $("#lang_english").click(function() {
+                    localStorage.setItem('language', 'en');
+                    $.i18n().locale = 'en';
+                    $('body').i18n();
+                    updateCaptions();
+                    scrollToBody();
+                });
+
+                 $("#lang_espanol").click(function() {
+                    localStorage.setItem('language', 'es');
+                    $.i18n().locale = 'es';
+                    $('body').i18n();
+                    updateCaptions();
+                    scrollToBody();
+                });
+            });        
+        });
+    </script>
+</body>
+</html>
+
