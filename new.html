@@ -51,7 +51,7 @@
     <div id="detail_modal" class="ui longer modal">
         <div id="detail_modal_header" class="header">
         </div>
-        <div class="scrolling image content">
+        <div id="detail_modal_scrollarea" class="scrolling image content">
             <div class="ui large rounded image">
                 <img id="detail_modal_profile_image" class='img-circle selected'>
             </div>
@@ -92,7 +92,7 @@
             <span data-i18n="background_title"></span>
         </h2>
         <div class="ui grid">
-            <div class="ten wide column">
+            <div class="ten wide computer only column">
                 <p class='background_text'><span data-i18n="[html]background_intro"></span>
                 </p>
                 <p class='background_text'><span data-i18n="[html]background_watersheds"></span>
@@ -100,9 +100,27 @@
                 <p class='background_text'><span data-i18n="[html]background_subwatersheds"></span>
                 </p>
             </div>
-            <div class="six wide column">
+            <div class="six wide computer only column">
                 <div id="map" class='visible-md-block visible-lg-block'></div>
-            </div>            
+            </div>    
+            
+            <div class="sixteen wide mobile tablet only column">
+                    <p class='background_text'><span data-i18n="[html]background_intro"></span>
+                    </p>
+                    <br>
+                    <img class="ui centered medium image" src="img/testmap/1.png">
+                
+                    <p class='background_text'><span data-i18n="[html]background_watersheds"></span>
+                    </p>
+                    <br>
+                    <img class="ui centered medium image" src="img/testmap/2.png">
+                                        
+                    <p class='background_text'><span data-i18n="[html]background_subwatersheds"></span>
+                    </p>
+                    <br>
+                    <img class="ui centered medium image" src="img/testmap/4.png">                    
+                    
+            </div>
         </div>
     </div>
     <br><br>
@@ -201,7 +219,7 @@
                     $(item_header).attr('data-i18n', 'person_name_' + item.key);
                     $(item_content).append(item_header);
 
-                    var item_description = $("<div class='description itemquote'>");
+                    var item_description = $("<div class='description'>");
                     $(item_description).attr('data-i18n', 'person_quote_' + item.key);
                     $(item_content).append(item_description);
 
@@ -216,9 +234,6 @@
 
                         $("#detail_modal_story").html( $.i18n( 'person_story_' + item.key, { 'interpolation': {'escapeValue': false} } ));
                         $("#detail_modal_header").html($.i18n('person_name_' + item.key));
-
-                        //$("#detail_modal_story").attr('data-i18n', '[html]person_story_' + item.key);
-                       // $("#detail_modal_header").attr('data-i18n', 'person_name_' + item.key);
                         $("#detail_modal_profile_image").attr("src", 'people/' + item.key + ".png");
                         $("#detail_modal_gallery").html("");
 
@@ -245,7 +260,13 @@
                             }
                         });
                         $('#detail_modal').i18n();
-                        $('#detail_modal').modal('show');
+                        $('#detail_modal').modal({
+                            onHide: function(){
+                                $("#detail_modal_scrollarea").scrollTop(0);
+                            }
+                        }).modal('show');
+                        
+                           
                     });
                 });
                 $(sections).append(section_container);
@@ -313,16 +334,11 @@
                         attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
                 }).addTo(map);
                 map.scrollWheelZoom.disable();
-
-
+                
                 var pane_colombia = map.createPane('colombia');
                 var pane_departments = map.createPane('departments');
                 var pane_fund = map.createPane('fund');
                 var pane_polygons = map.createPane('test');
-
-                /*pane_fund.style.display = 'none';
-                pane_departments.style.display = 'none';
-                pane_colombia.style.display = 'none';*/
 
                 addGeoJsonToMap(map, "data/Col_limits.txt", 'colombia', function(){
                     return {  
@@ -363,7 +379,6 @@
                 });
 
                 _.each(mapTriggers, function(mapTrigger, i){
-                    console.log(mapTrigger);
 
                     var polygon = L.polygon([
                         [mapTrigger.minLatitude , mapTrigger.minLongitude],
@@ -371,7 +386,7 @@
                         [ mapTrigger.maxLatitude,  mapTrigger.maxLongitude],
                         [ mapTrigger.maxLatitude,  mapTrigger.minLongitude],
                     ], {
-                        color: "#FFF",// mapTrigger.color,
+                        color: "#FFF",
                         fillColor: "#000000",
                         fillOpacity: 0.0,
                         weight: 3,
