@@ -53,7 +53,7 @@
 
                <span data-i18n="[html]background_watersheds"></span><br><br>
 
-               
+
                <span data-i18n="[html]background_subwatersheds"></span><br><br>
         </div>
         <div id="map" class='visible-md-block visible-lg-block'></div>
@@ -349,7 +349,6 @@
                 },
             ];
 
-
             var personTriggers = [
             { 
                 latitude: 3.41959408, 
@@ -627,9 +626,9 @@
                 var pane_colombia = map.createPane('colombia');
                 var pane_departments = map.createPane('departments');
                 var pane_fund = map.createPane('fund');
-                pane_fund.style.display = 'none';
-                pane_departments.style.display = 'none';
-                pane_colombia.style.display = 'none';
+                pane_fund.style.display = 'initial';
+                pane_departments.style.display = 'initial';
+                pane_colombia.style.display = 'initial';
 
                 addGeoJsonToMap(map, "data/Col_limits.txt", 'colombia', function(){
                     return {  

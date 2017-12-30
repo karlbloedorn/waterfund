@@ -13,10 +13,6 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css">  
-    
-    <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' type='text/css'>
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' type='text/css'>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" crossorigin=""/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Encode+Sans" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" />    
@@ -46,6 +42,9 @@
         .gallery-picture{
             margin: 4px;
         }
+       .highlighted_word{
+           cursor: pointer;
+       }
     </style>
 </head>
 <body>
@@ -79,12 +78,12 @@
             <h3><span data-i18n="project_subtitle"></span></h3>
         </div>   
         <div id="lang_buttons">
-                <button id='lang_english' class="ui black button">
-                        English
-                </button>
-                <button  id='lang_espanol' class="ui black button">
-                        Español
-                </button>
+            <button id='lang_english' class="ui black button">
+                    English
+            </button>
+            <button  id='lang_espanol' class="ui black button">
+                    Español
+            </button>
         </div>
     </section>
     <br><br><br>
@@ -92,12 +91,19 @@
         <h2 class="ui header sectionheader">
             <span data-i18n="background_title"></span>
         </h2>
-        <p class='background_text'><span data-i18n="[html]background_intro"></span>
-        </p>
-        <p class='background_text'><span data-i18n="[html]background_watersheds"></span>
-        </p>
-        <p class='background_text'><span data-i18n="[html]background_subwatersheds"></span>
-        </p>
+        <div class="ui grid">
+            <div class="ten wide column">
+                <p class='background_text'><span data-i18n="[html]background_intro"></span>
+                </p>
+                <p class='background_text'><span data-i18n="[html]background_watersheds"></span>
+                </p>
+                <p class='background_text'><span data-i18n="[html]background_subwatersheds"></span>
+                </p>
+            </div>
+            <div class="six wide column">
+                <div id="map" class='visible-md-block visible-lg-block'></div>
+            </div>            
+        </div>
     </div>
     <br><br>
     <div id='sections'>
@@ -145,26 +151,26 @@
             </div>
         </div>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" crossorigin=""></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/jquery.gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
     <script src="lib/jquery.i18n.js"></script>
     <script src="lib/jquery.i18n.messagestore.js"></script>
     <script src="lib/jquery.i18n.fallbacks.js"></script>
     <script src="lib/jquery.i18n.parser.js"></script>
     <script src="lib/jquery.i18n.emitter.js"></script>
     <script src="lib/jquery.i18n.language.js"></script>
-    <script src="lib/animation.gsap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>    
     <script>
         $(document).ready(function(){
             var data=[{items:[{key:"amalia",images:["DSC00041","DSC00492","101_1665","108_7672","DSC07261","DSC07278"]}]},{items:[{key:"guido",images:["DSC00314","DSC00330","DSC00339","DSC05337","P1010071"]},{key:"school",images:["DSC00157","DSC00134","DSC00136","DSC00143"]},{key:"manuel",images:["DSC02800","DSC02784","DSC02791","P1010911","P1010913"]},{key:"community",images:["DSC00078","DSC00089","DSC00093","DSC00115","DSC00123"]}]},{items:[{key:"diego",images:["DSC00428","DSC00446","P1030766","P1030882","P1050733"]},{key:"humberto",images:["DSC00374","108_6873","108_7543","108_7546","P1100449","108_7536"]},{key:"oscar",images:["DSC00500","DSC00507","DSC00509","DSC00531"]}]},{items:[{key:"otoniel",images:["DSC00426","P1140705","P1140712","P1160183","P1160992"]},{key:"ediberto",images:["DSC00021","DSC00032","P1080776","P1120067","108_7313"]},{key:"trujillo",images:["P1090557","P1100233","P1100235","P1100374","P1100398"]}]},{"items" :[]}];
-
+            var mapTriggers=[
+                {triggerElement:"#item_colombia",mapZoomLevel:4,minLatitude:-5,maxLatitude:15,minLongitude:-79.85,maxLongitude:-65.833,color:"#fec44f",leftLatitude:4.166858,leftLongitude:-77.525039,pane:"colombia"},
+                {triggerElement:"#item_cauca_river",mapZoomLevel:6,minLatitude:.9,maxLatitude:5.30535,minLongitude:-78.213,maxLongitude:-75.48148,color:"#7fcdbb",pane:"departments"},
+                {triggerElement:"#item_fifteen_watersheds",mapZoomLevel:8,minLatitude:2.649586,maxLatitude:5.25117,minLongitude:-76.869759,maxLongitude:-75.70077,color:"#31a354",pane:"fund"},
+                {triggerElement:"#item_asobolo",mapZoomLevel:10,minLatitude:3.34986,maxLatitude:3.60117,minLongitude:-76.491,maxLongitude:-76.030077,color:"#c51b8a",pane:"fund"}];
+            
             // Add all the sections
             var sections = $("#sections");
             _.each(data, function(section, sectionIndex){
@@ -208,17 +214,15 @@
 
                     $(item_div).click(function(){
 
-                        $("#detail_modal_story").html("");
-                        $("#detail_modal_header").html("");
+                        $("#detail_modal_story").html( $.i18n( 'person_story_' + item.key, { 'interpolation': {'escapeValue': false} } ));
+                        $("#detail_modal_header").html($.i18n('person_name_' + item.key));
 
-                        $("#detail_modal_story").attr('data-i18n', '[html]person_story_' + item.key);
-                        $("#detail_modal_header").attr('data-i18n', 'person_name_' + item.key);
-
+                        //$("#detail_modal_story").attr('data-i18n', '[html]person_story_' + item.key);
+                       // $("#detail_modal_header").attr('data-i18n', 'person_name_' + item.key);
                         $("#detail_modal_profile_image").attr("src", 'people/' + item.key + ".png");
                         $("#detail_modal_gallery").html("");
 
                         _.each(item.images, function(image, imageIndex){
-                            console.log(image);
                             var image_link = $("<a>");
                             $(image_link).attr("data-fancybox", item.key);
                             $(image_link).attr("data-translate-caption", 'caption_' + item.key + '_' + (imageIndex +1));
@@ -230,6 +234,7 @@
                             $(image_link).append(img);
                             $(img).css('height', '80px' );
                         });
+
                         $(".gallery").children().each(function () {
                             var captionKey =  $(this).data("translate-caption");
                             if(captionKey != null){
@@ -239,18 +244,14 @@
                                 $(this).data("caption",  'CAPTION NEEDED');
                             }
                         });
-
-                         $('#detail_modal').i18n();
-
-                        console.log(item);
+                        $('#detail_modal').i18n();
                         $('#detail_modal').modal('show');
-
                     });
                 });
                 $(sections).append(section_container);
             });
 
-            $.i18n.debug = true;
+            $.i18n.debug = false;
 
             var selectedLanguage = localStorage.getItem('language');
             if(selectedLanguage != null){
@@ -260,11 +261,8 @@
                 $.i18n().locale = 'en';
             }
 
-            function updateCaptions(){
-                $('.learnmore').i18n();
-            }
-
-
+            /*
+            TODO slideshow
             var images=new Array('img/DSC00562_optimized.jpg','img/manuel/DSC02784.JPG',);
             var nextimage=0;
             doSlideshow();
@@ -275,37 +273,120 @@
                 }
                 $('#video').css('background-image', "url('" + images[nextimage++]+ "')");
                 //setTimeout(doSlideshow,2000);
-            }
-
-            /*function scrollToBody(){
-                $('html, body').delay(800).animate({
-                    scrollTop: $("#backgroundSection").offset().top
-                }, 1000, 'easeInOutQuad');
             }*/
+
+            function addGeoJsonToMap(map, filename, pane, styleFunc){
+                $.getJSON(filename, function(json) {
+                    var layer = L.geoJSON(json, {
+                        style: styleFunc,
+                        pane: pane
+                    }).addTo(map);
+                });
+            }
 
             $.i18n().load( {
                 en: 'i18n/en.txt',
                 es: 'i18n/es.txt'
              }).done( function() {
-                $('body').i18n();
 
-                updateCaptions();
+                function renderLanguage(){
+                    $('body').i18n();
+                    $(".highlighted_word").append(" <i class='location arrow blue icon'></i>");
+                }
+                renderLanguage();
 
                 // set up the language selector
                 $("#lang_english").click(function() {
                     localStorage.setItem('language', 'en');
                     $.i18n().locale = 'en';
-                    $('body').i18n();
-                    updateCaptions();
-                    scrollToBody();
+                    renderLanguage();
                 });
 
                  $("#lang_espanol").click(function() {
                     localStorage.setItem('language', 'es');
                     $.i18n().locale = 'es';
-                    $('body').i18n();
-                    updateCaptions();
-                    scrollToBody();
+                    renderLanguage();
+                });
+
+                var map = L.map('map').setView([3.41, -76.24], 3);
+                L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+                }).addTo(map);
+                map.scrollWheelZoom.disable();
+
+
+                var pane_colombia = map.createPane('colombia');
+                var pane_departments = map.createPane('departments');
+                var pane_fund = map.createPane('fund');
+                var pane_polygons = map.createPane('test');
+
+                /*pane_fund.style.display = 'none';
+                pane_departments.style.display = 'none';
+                pane_colombia.style.display = 'none';*/
+
+                addGeoJsonToMap(map, "data/Col_limits.txt", 'colombia', function(){
+                    return {  
+                        weight: 4,
+                        opacity: 1,
+                        color: '#fec44f', 
+                        fillOpacity: 0.0,
+                    };
+                });
+
+                addGeoJsonToMap(map, "data/Dep_fondo.txt", 'departments', function(){
+                    return {  
+                        weight: 3,
+                        opacity: 1,
+                        color: '#7fcdbb', 
+                        fillOpacity: 0.0 
+                    };
+                });
+
+                addGeoJsonToMap(map, "data/Fondo_work_areas.txt", 'fund', function(feature, i){
+                    if(feature.properties.NOM_CUENCA === 'Bolo'){
+                        return  {  
+                            weight: 1, 
+                            opacity: 1,  
+                            color: 'white', 
+                            fillOpacity: 0.7,
+                            fillColor: "#c51b8a",
+                        };
+                    } else {
+                        return  {  
+                            weight: 1, 
+                            opacity: 1,  
+                            color: 'white', 
+                            fillOpacity: 0.7,
+                            fillColor: "#31a354",
+                        };  
+                    }
+                });
+
+                _.each(mapTriggers, function(mapTrigger, i){
+                    console.log(mapTrigger);
+
+                    var polygon = L.polygon([
+                        [mapTrigger.minLatitude , mapTrigger.minLongitude],
+                        [mapTrigger.minLatitude ,  mapTrigger.maxLongitude],
+                        [ mapTrigger.maxLatitude,  mapTrigger.maxLongitude],
+                        [ mapTrigger.maxLatitude,  mapTrigger.minLongitude],
+                    ], {
+                        color: "#FFF",// mapTrigger.color,
+                        fillColor: "#000000",
+                        fillOpacity: 0.0,
+                        weight: 3,
+                        pane: 'test'
+                    });
+
+                    $(mapTrigger.triggerElement).hover(
+                        function() {
+                            map.stop()	
+                            map.setView([3.41, -76.24], mapTrigger.mapZoomLevel); 
+                            polygon.addTo(map);
+                        }, function() {
+                            polygon.removeFrom(map);
+                        }
+                    );
                 });
             });        
         });
