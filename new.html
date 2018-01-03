@@ -245,9 +245,6 @@
                     $(item_container).append(item_div);
                     //$(item_div).html("<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p></div>");
                  
-
-                
-
                     var profile_image_wrapper = $("<div class='ui circular right small image floated'>");
                     var profile_image = $("<img>");
                     $(profile_image).attr('src', 'people/' + item.key + ".png");
@@ -282,7 +279,6 @@
 
                         if($(e.target).hasClass('gallery-picture')){
                             return;
-
                         }
 
                         $("#detail_modal_story").html( $.i18n( 'person_story_' + item.key, { 'interpolation': {'escapeValue': false} } ));
@@ -365,6 +361,8 @@
 
                 function renderLanguage(){
                     $('body').i18n();
+
+                    $(".mobile").find(".highlighted_word").removeClass("highlighted_word");
                     $(".highlighted_word").append(" <i class='location arrow blue icon'></i>");
                 }
                 renderLanguage();
