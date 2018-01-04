@@ -26,7 +26,7 @@
         <div id="detail_modal_header" class="header">
         </div>
         <div id="detail_modal_scrollarea" class="scrolling image content">
-            <div id="detail_modal_profile_image_wrapper" class="ui large rounded image">
+            <div id="detail_modal_profile_image_wrapper" class="ui large circular image">
                 <img id="detail_modal_profile_image" class='img-circle selected'>
             </div>
             <div class="description">
@@ -159,10 +159,12 @@
         $(document).ready(function(){
             var data=[
                 {
-                    items:[{key:"amalia",images:["DSC00041","DSC00492","101_1665","108_7672","DSC07261","DSC07278"]}]},
+                    items:[{key:"amalia",images:["DSC00041","DSC00492","101_1665","108_7672","DSC07261","DSC07278"]},
+                    {key:"school",images:["DSC00157","DSC00134","DSC00136","DSC00143"]}
+                    ]},
                 {
                     items:[{key:"guido",images:["DSC00314","DSC00330","DSC00339","DSC05337","P1010071"]},
-                        {key:"school",images:["DSC00157","DSC00134","DSC00136","DSC00143"]},
+                        
                         {key:"manuel",images:["DSC02800","DSC02784","DSC02791","P1010911","P1010913"]},
                         {key:"community",images:["DSC00078","DSC00089","DSC00093","DSC00115","DSC00123"]}]},
                 {
@@ -196,10 +198,10 @@
                 $(sections).append(section_grid);
                 $(section_grid).append(section_container);
                 var item_container = $("<div class='ui doubling stackable cards'>");
-                if(section.items.length > 2){
+                if(section.items.length > 1){
                     $(item_container).addClass('three');
                 } else {
-                    $(item_container).addClass('two');
+                    $(item_container).addClass('three');
                 }
                 $(section_container).append(item_container);
 
