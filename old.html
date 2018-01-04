@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<meta name="viewport" content="initial-scale=1">
+    <title data-i18n="appname-title"></title>
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' type='text/css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' type='text/css'>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" crossorigin=""/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Encode+Sans" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" />    
+    <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+     <canvas class='visible-lg-block visible-md-block' id="lineOverlay"></canvas>      
+     <section id="introSection" class="full-screen">
+        <div id='video'>
+        </div>
+
+        <div id="titlecontent">
+            <span data-i18n="project_title"></span>
+            <h3><span data-i18n="project_subtitle"></span></h3>
+            
+        </div>   
+        <div id="lang_buttons">
+                <a class='btn btn-default' id='lang_english'>English</a>
+                <a class='btn btn-default' id='lang_espanol'>Español</a>
+        </div>
+    </section>
+    <section id="backgroundSection" class="partial-screen" style='position: relative;'>
+        <div class='section-header' data-i18n="background_title">
+        </div>
+
+        <!--
+        <img style='float:right; margin-left: 10px;' src='img/testmap/1.png' height='180'>
+        <br><img style='float:left; margin-right: 20px;' src='img/testmap/2.png' height='200'>
+        <img style='float:right; margin-left: 20px;' src='img/testmap/3.png' height='200'>
+        -->
+
+        <div id='backgroundBody' class='left-only section_body'>
+               <span data-i18n="[html]background_intro"></span><br><br>
+
+
+               <span data-i18n="[html]background_watersheds"></span><br><br>
+
+
+               <span data-i18n="[html]background_subwatersheds"></span><br><br>
+        </div>
+        <div id="map" class='visible-md-block visible-lg-block'></div>
+
+        <br><br>
+    </section>
+
+    <section class="partial-screen" >
+        <div class='section-header'>
+             <div data-i18n="section_header_1"></div>
+        </div>
+        <!--Amalia-->
+        <div class='left-only section_body person_card'> <!-- amalia -->
+            <div class='pull-right'>
+                    <img id="profile_pic_amalia" src='people/amalia.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            <div>"<span data-i18n="person_quote_amalia"></span>"</div>
+            <div class='person_name'>― Dr. Amalia Morales</div>
+            <div class="person_body hide" data-i18n="[html]person_story_amalia"></div>
+            <div class="gallery">
+                <a data-fancybox="amalia" data-translate-caption="caption_amalia_1" href="img/amalia/DSC00041.JPG"><img class='gallery-picture' src="img/amalia/DSC00041_tn.jpg" height='80'></a>
+                <a data-fancybox="amalia" data-translate-caption="caption_amalia_2" href="img/amalia/DSC00492.JPG"><img class='gallery-picture' src="img/amalia/DSC00492_tn.jpg" height='80'></a>
+                <a data-fancybox="amalia" data-translate-caption="caption_amalia_3" href="img/amalia/101_1665.JPG"><img class='gallery-picture' src="img/amalia/101_1665_tn.jpg" height='80'></a>
+                <a data-fancybox="amalia" data-translate-caption="caption_amalia_4" href="img/amalia/108_7672.JPG"><img class='gallery-picture' src="img/amalia/108_7672_tn.jpg" height='80'></a>
+                <a data-fancybox="amalia" data-translate-caption="caption_amalia_5" href="img/amalia/DSC07261.JPG"><img class='gallery-picture' src="img/amalia/DSC07261_tn.jpg" height='80'></a>
+                <a data-fancybox="amalia" data-translate-caption="caption_amalia_6" href="img/amalia/DSC07278.JPG"><img class='gallery-picture' src="img/amalia/DSC07278_tn.jpg" height='80'></a>
+             </div>                                                                                
+        </div>   
+    </section>
+    <section class="partial-screen" >
+        <div class='section-header'>
+             <div data-i18n="section_header_2"></div>
+        </div>
+        <!--guido-->
+        <div class='left-only section_body person_card'> 
+            <div class='pull-right'>
+                <img id="profile_pic_guido" src='people/guido.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            <div data-i18n="[html]person_quote_guido"></div>  
+            <div class='person_name'>Guido Prado</div>
+            <div class="person_body hide" data-i18n="[html]person_story_guido"></div>  
+            <div class="gallery">
+                <a data-fancybox="guido" data-translate-caption="caption_guido_1" href="img/guido/DSC00314.JPG"><img class='gallery-picture' src="img/guido/DSC00314_tn.jpg" height='80'></a>
+                <a data-fancybox="guido" data-translate-caption="caption_guido_2" href="img/guido/DSC00330.JPG"><img class='gallery-picture' src="img/guido/DSC00330_tn.jpg" height='80'></a>
+                <a data-fancybox="guido" data-translate-caption="caption_guido_3"  href="img/guido/DSC00339.JPG"><img class='gallery-picture'  src="img/guido/DSC00339_tn.jpg" height='80'></a>
+                <a data-fancybox="guido"  data-translate-caption="caption_guido_4" href="img/guido/DSC05337.JPG"><img class='gallery-picture'  src="img/guido/DSC05337.jpg" height='80'></a>
+                <a data-fancybox="guido"  data-translate-caption="caption_guido_5" href="img/guido/P1010071.JPG"><img class='gallery-picture'  src="img/guido/P1010071_tn.jpg" height='80'></a>
+             </div>
+        </div>
+        <!-- school -->
+        <div class='left-only section_body person_card'>
+            <div class='pull-right'>
+                <img id="profile_pic_school" src='people/school.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            <div data-i18n="[html]person_quote_school"></div>                                                                                            
+            <div class='person_name'>Mercedes Abrego School</div>       
+            <div class="person_body hide" data-i18n="[html]person_story_school"></div>    
+            <div class="gallery">
+                <a data-fancybox="school" data-translate-caption="caption_school_1" href="img/school/DSC00157.JPG"><img class='gallery-picture' src="img/school/DSC00157_tn.jpg" height='80'></a>
+                <a data-fancybox="school" data-translate-caption="caption_school_2" href="img/school/DSC00134.JPG"><img class='gallery-picture' src="img/school/DSC00134_tn.jpg" height='80'></a>
+                <a data-fancybox="school" data-translate-caption="caption_school_3" href="img/school/DSC00136.JPG"><img class='gallery-picture' src="img/school/DSC00136_tn.jpg" height='80'></a>   
+                <a data-fancybox="school" data-translate-caption="caption_school_4" href="img/school/DSC00143.JPG"><img class='gallery-picture' src="img/school/DSC00143_tn.jpg" height='80'></a>     
+            </div> 
+
+        </div> 
+        <!--esteban-->
+        <div class='left-only section_body person_card'> 
+            <div class='pull-right'>
+                <img id="profile_pic_esteban" src='people/esteban.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            <div data-i18n="[html]person_quote_manuel"></div>                                                                                            
+            <div class='person_name'>Manuel Esteban Guefias Salazar</div> 
+            <div class="person_body hide" data-i18n="[html]person_story_manuel"></div>     
+            <div class="gallery">
+                <a data-fancybox="esteban" data-translate-caption="caption_esteban_1" href="img/esteban/DSC02800.JPG"><img class='gallery-picture' src="img/esteban/DSC02800_tn.jpg" height='80'></a>
+                <a data-fancybox="esteban" data-translate-caption="caption_esteban_2" href="img/esteban/DSC02784.JPG"><img class='gallery-picture' src="img/esteban/DSC02784_tn.jpg" height='80'></a>
+                <a data-fancybox="esteban" data-translate-caption="caption_esteban_3" href="img/esteban/DSC02791.JPG"><img class='gallery-picture' src="img/esteban/DSC02791_tn.jpg" height='80'></a>   
+                <a data-fancybox="esteban" data-translate-caption="caption_esteban_4" href="img/esteban/P1010911.JPG"><img class='gallery-picture' src="img/esteban/P1010911_tn.jpg" height='80'></a>   
+                <a data-fancybox="esteban" data-translate-caption="caption_esteban_5" href="img/esteban/P1010913.JPG"><img class='gallery-picture' src="img/esteban/P1010913_tn.jpg" height='80'></a>   
+            </div>      
+        </div>
+        <!-- community -->
+        <div class='left-only section_body person_card'> 
+            <div class='pull-right'>
+                <img id="profile_pic_community" src='people/community.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            <div>"<span data-i18n="[html]person_quote_community"></span>"</div>                                                                                           
+            <div class='person_name'>― Kwet Wala Indigenous Community</div> 
+            <div class="person_body hide" data-i18n="[html]person_story_community"></div>  
+            <div class="gallery">
+                <a data-fancybox="community"  data-translate-caption="caption_community_1" href="img/community/DSC00078.JPG"><img class='gallery-picture' src="img/community/DSC00078_tn.jpg" height='80'></a> 
+                <a data-fancybox="community" data-translate-caption="caption_community_2" href="img/community/DSC00089.JPG"><img class='gallery-picture' src="img/community/DSC00089_tn.jpg" height='80'></a> 
+                <a data-fancybox="community" data-translate-caption="caption_community_3" href="img/community/DSC00093.JPG"><img class='gallery-picture' src="img/community/DSC00093_tn.jpg" height='80'></a> 
+                <a data-fancybox="community" data-translate-caption="caption_community_4" href="img/community/DSC00115.JPG"><img class='gallery-picture' src="img/community/DSC00115_tn.jpg" height='80'></a> 
+                <a data-fancybox="community" data-translate-caption="caption_community_5" href="img/community/DSC00123.JPG"><img class='gallery-picture' src="img/community/DSC00123_tn.jpg" height='80'></a>              
+            </div>                                                                            
+        </div>
+    </section>
+
+    <!-- -->
+    <section class="partial-screen" >
+        <div class='section-header'>
+             <div data-i18n="section_header_3"></div>
+        </div>
+         <!--diego-->
+        <div class='left-only section_body person_card'>   
+            <div class='pull-right'>
+                <img id="profile_pic_diego" src='people/diego.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            <div data-i18n="[html]person_quote_diego"></div>                                                                                            
+            <div class='person_name'>Diego Márquez</div>
+            <div class="person_body hide" data-i18n="[html]person_story_diego"></div>  
+            <div class="gallery">
+                <a data-fancybox="diego" data-translate-caption="caption_diego_1" href="img/diego/DSC00428.JPG"><img class='gallery-picture' src="img/diego/DSC00428_tn.JPG" height='80'></a>
+                <a data-fancybox="diego" data-translate-caption="caption_diego_2" href="img/diego/DSC00446.JPG"><img class='gallery-picture' src="img/diego/DSC00446_tn.JPG" height='80'></a>
+                <a data-fancybox="diego" data-translate-caption="caption_diego_3" href="img/diego/P1030766.JPG"><img class='gallery-picture' src="img/diego/P1030766_tn.JPG" height='80'></a>
+                <a data-fancybox="diego" data-translate-caption="caption_diego_4" href="img/diego/P1030882.JPG"><img class='gallery-picture' src="img/diego/P1030882_tn.JPG" height='80'></a>
+                <a data-fancybox="diego" data-translate-caption="caption_diego_5" href="img/diego/P1050733.JPG"><img class='gallery-picture' src="img/diego/P1050733_tn.JPG" height='80'></a>
+            </div>                                                                             
+        </div>  
+        <!--humberto-->
+         <div class='left-only section_body person_card'> 
+            <div class='pull-right'>
+                <img id="profile_pic_humberto" src='people/humberto.PNG' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            <div data-i18n="[html]person_quote_humberto"></div>                                                                                            
+            <div class='person_name'>Humberto Prieto</div>  
+            <div class="person_body hide" data-i18n="[html]person_story_humberto"></div>    
+            <div class="gallery">
+                <a data-fancybox="humberto" data-translate-caption="caption_humberto_1" href="img/humberto/DSC00374.JPG"><img class='gallery-picture' src="img/humberto/DSC00374_tn.JPG" height='80'></a>
+                <a data-fancybox="humberto" data-translate-caption="caption_humberto_2" href="img/humberto/108_6873.JPG"><img class='gallery-picture' src="img/humberto/108_6873_tn.JPG" height='80'></a>
+                <a data-fancybox="humberto" data-translate-caption="caption_humberto_3" href="img/humberto/108_7543.JPG"><img class='gallery-picture' src="img/humberto/108_7543_tn.JPG" height='80'></a>
+                <a data-fancybox="humberto" data-translate-caption="caption_humberto_4" href="img/humberto/108_7546.JPG"><img class='gallery-picture' src="img/humberto/108_7546_tn.JPG" height='80'></a>
+                <a data-fancybox="humberto" data-translate-caption="caption_humberto_5" href="img/humberto/P1100449.JPG"><img class='gallery-picture' src="img/humberto/P1100449_tn.JPG" height='80'></a>
+                <a data-fancybox="humberto" data-translate-caption="caption_humberto_6" href="img/humberto/108_7536.JPG"><img class='gallery-picture' src="img/humberto/108_7536_tn.JPG" height='80'></a>
+            </div>                                                                                          
+        </div>       
+        <!--oscar-->
+         <div class='left-only section_body person_card'>  
+            <div class='pull-right'>
+                <img id="profile_pic_oscar" src='people/oscar.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            <div data-i18n="[html]person_quote_oscar"></div>                                                                                                        
+            <div class='person_name'>Oscar Andres Martinez</div>
+            <div class="person_body hide" data-i18n="[html]person_story_oscar"></div>   
+            <div class="gallery">
+                <a data-fancybox="oscar" data-translate-caption="caption_oscar_1" href="img/oscar/DSC00500.JPG"><img class='gallery-picture' src="img/oscar/DSC00500_tn.JPG" height='80'></a>
+                <a data-fancybox="oscar" data-translate-caption="caption_oscar_2" href="img/oscar/DSC00507.JPG"><img class='gallery-picture' src="img/oscar/DSC00507_tn.JPG" height='80'></a>
+                <a data-fancybox="oscar" data-translate-caption="caption_oscar_3" href="img/oscar/DSC00509.JPG"><img class='gallery-picture' src="img/oscar/DSC00509_tn.JPG" height='80'></a>
+                <a data-fancybox="oscar" data-translate-caption="caption_oscar_4" href="img/oscar/DSC00531.JPG"><img class='gallery-picture' src="img/oscar/DSC00531_tn.JPG" height='80'></a>
+            </div>                                                                                               
+        </div>      
+    </section>
+
+    <!-- -->
+    <section class="partial-screen" >
+        <div class='section-header'>
+             <div data-i18n="section_header_4"></div>
+        </div>
+        <!--otania-->
+        <div class='left-only section_body person_card'>  
+            <div class='pull-right'>
+                <img id="profile_pic_otania" src='people/otoniel.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            <div data-i18n="[html]person_quote_otoniel"></div>                                                                                            
+            <div class='person_name'>Otoniel Ocuyame</div>                            
+            <div class="person_body hide" data-i18n="[html]person_story_otoniel"></div>                                                                                
+            <div class="gallery">
+                    <a data-fancybox="otoniel" data-translate-caption="caption_otoniel_1" href="img/otoniel/DSC00426.JPG"><img class='gallery-picture' src="img/otoniel/DSC00426_tn.JPG" height='80'></a>
+                    <a data-fancybox="otoniel" data-translate-caption="caption_otoniel_2" href="img/otoniel/P1140705.JPG"><img class='gallery-picture' src="img/otoniel/P1140705_tn.JPG" height='80'></a>
+                    <a data-fancybox="otoniel" data-translate-caption="caption_otoniel_3" href="img/otoniel/P1140712.JPG"><img class='gallery-picture' src="img/otoniel/P1140712_tn.JPG" height='80'></a>
+                    <a data-fancybox="otoniel" data-translate-caption="caption_otoniel_4" href="img/otoniel/P1160183.JPG"><img class='gallery-picture' src="img/otoniel/P1160183_tn.JPG" height='80'></a>
+                    <a data-fancybox="otoniel" data-translate-caption="caption_otoniel_5" href="img/otoniel/P1160992.JPG"><img class='gallery-picture' src="img/otoniel/P1160992_tn.JPG" height='80'></a>
+            </div> 
+        </div>   
+        <!--ediberto-->
+        <div class='left-only section_body person_card'>  
+            <div class='pull-right'>
+                <img id="profile_pic_ediberto" src='people/ediberto.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            <div data-i18n="[html]person_quote_ediberto"></div>                                                                                            
+            <div class='person_name'>Ediberto Perea</div>           
+            <div class="person_body hide" data-i18n="[html]person_story_ediberto"></div>
+            <div class="gallery">
+                <a data-fancybox="ediberto" data-translate-caption="caption_ediberto_1" href="img/ediberto/DSC00021.JPG"><img class='gallery-picture' src="img/ediberto/DSC00021_tn.JPG" height='80'></a>
+                <a data-fancybox="ediberto" data-translate-caption="caption_ediberto_2" href="img/ediberto/DSC00032.JPG"><img class='gallery-picture' src="img/ediberto/DSC00032_tn.JPG" height='80'></a>
+                <a data-fancybox="ediberto" data-translate-caption="caption_ediberto_3" href="img/ediberto/P1080776.JPG"><img class='gallery-picture' src="img/ediberto/P1080776_tn.JPG" height='80'></a>
+                <a data-fancybox="ediberto" data-translate-caption="caption_ediberto_4" href="img/ediberto/P1120067.JPG"><img class='gallery-picture' src="img/ediberto/P1120067_tn.JPG" height='80'></a>
+                <a data-fancybox="ediberto" data-translate-caption="caption_ediberto_5" href="img/ediberto/108_7313.JPG"><img class='gallery-picture' src="img/ediberto/108_7313_tn.JPG" height='80'></a>
+            </div>                                                                                 
+       </div>     
+        <!--trujillo-->
+       <div class='left-only section_body person_card'>  
+            <div class='pull-right'>
+                <img id="profile_pic_trujillo" src='people/trujillo.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            <div><span data-i18n="[html]person_quote_trujillo"></span></div>
+            <div class='person_name'>― Gustavo Trujillo Caicedo</div>   
+            <div class="person_body hide" data-i18n="[html]person_story_trujillo"></div>   
+            <div class="gallery">
+                <a data-fancybox="trujillo" data-translate-caption="caption_trujillo_1" href="img/trujillo/P1090557.JPG"><img class='gallery-picture' src="img/trujillo/P1090557_tn.JPG" height='80'></a>
+                <a data-fancybox="trujillo" data-translate-caption="caption_trujillo_2" href="img/trujillo/P1100233.JPG"><img class='gallery-picture' src="img/trujillo/P1100233_tn.JPG" height='80'></a>
+                <a data-fancybox="trujillo" data-translate-caption="caption_trujillo_3" href="img/trujillo/P1100235.JPG"><img class='gallery-picture' src="img/trujillo/P1100235_tn.JPG" height='80'></a>
+                <a data-fancybox="trujillo" data-translate-caption="caption_trujillo_4" href="img/trujillo/P1100374.JPG"><img class='gallery-picture' src="img/trujillo/P1100374_tn.JPG" height='80'></a>
+                <a data-fancybox="trujillo" data-translate-caption="caption_trujillo_5" href="img/trujillo/P1100398.JPG"><img class='gallery-picture' src="img/trujillo/P1100398_tn.JPG" height='80'></a>
+            </div>                                                                              
+        </div>   
+    </section>
+
+    <!--working for nature-->
+    <section class="partial-screen" >
+        <div class='section-header'>
+             <div data-i18n="section_header_5"></div>
+         </div>
+        <!--employees -->
+         <div class='left-only section_body person_card'> 
+            <div class='pull-right'>
+                <img id="profile_pic_employees" src='img/FFFFFF-0.8.png' class='img-circle selected inline-image-right' width='100' height='100'>                    
+            </div>
+            <div data-i18n="[html]person_quote_employees"></div>                                                                                
+            <div class='person_name'>Employees of the water fund</div>    
+            <div class="person_body hide" data-i18n="[html]person_story_employees"></div>  
+            <div class="gallery">
+                <a data-fancybox="employees" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="employees" href=""><img class='gallery-picture' src="" height='80'></a>
+                <a data-fancybox="employees" href=""><img class='gallery-picture' src="" height='80'></a>                
+            </div>                                                                               
+        </div>  
+    </section>
+
+    <br>
+    <img id="logoSet" src='img/logos.png'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/jquery.gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script src="lib/jquery.i18n.js"></script>
+    <script src="lib/jquery.i18n.messagestore.js"></script>
+    <script src="lib/jquery.i18n.fallbacks.js"></script>
+    <script src="lib/jquery.i18n.parser.js"></script>
+    <script src="lib/jquery.i18n.emitter.js"></script>
+    <script src="lib/jquery.i18n.language.js"></script>
+    <script src="lib/animation.gsap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>    
+    <script>
+        $(document).ready(function(){
+
+            var mapTriggers = [
+                {
+                    triggerElement : "#item_colombia",
+                    mapZoomLevel : 4,
+                    minLatitude : -5,
+                    maxLatitude : 15,
+                    minLongitude : -79.85,
+                    maxLongitude : -65.833,
+                    color: '#fec44f',
+                    leftLatitude : 4.166858,
+                    leftLongitude: -77.525039,
+                    pane : 'colombia'
+                },
+                {
+                    triggerElement : "#item_cauca_river",
+                    mapZoomLevel : 6,
+                    minLatitude : 0.9,
+                    maxLatitude : 5.30535,
+                    minLongitude : -78.213,
+                    maxLongitude : -75.48148,
+                    color: '#7fcdbb',
+                    pane: 'departments'
+                },                
+                {
+                    triggerElement : "#item_fifteen_watersheds",
+                    mapZoomLevel : 8,
+                    minLatitude : 2.649586,
+                    maxLatitude : 5.251170,
+                    minLongitude : -76.869759,
+                    maxLongitude : -75.70077,
+                    color: '#31a354',
+                    pane: 'fund'
+                },
+                {
+                    triggerElement : "#item_asobolo",
+                    mapZoomLevel : 8,
+                    minLatitude : 3.359586,
+                    maxLatitude : 3.601170,
+                    minLongitude : -76.469759,
+                    maxLongitude : -76.030077,
+                    color: '#c51b8a',
+                    pane: 'fund'
+                },
+            ];
+
+            var personTriggers = [
+            { 
+                latitude: 3.41959408, 
+                longitude: -76.24354223,
+                renderLines: false,
+                div: $("#profile_pic_amalia"),
+             },
+             { 
+                latitude: 3.4785992,
+                longitude: -76.18185117,
+                renderLines: false,
+                div: $("#profile_pic_school"),
+             },
+             {
+                latitude: 3.382446533, 
+                longitude: -76.16795431,
+                renderLines: false,
+                div: $("#profile_pic_community"),
+            },
+            { 
+                latitude: 3.480795636, 
+                longitude: -76.20952109,
+                renderLines: false,
+                div: $("#profile_pic_guido"),
+            },
+            { 
+                latitude: 3.484917646, 
+                longitude: -76.18482255,
+                renderLines: false,
+                div: $("#profile_pic_humberto"),
+            },
+            
+            {
+                latitude: 3.518703002, 
+                longitude: -76.20951816,//TODO GET POINTS
+                renderLines: false,
+                div: $("#profile_pic_esteban")
+            },
+            {
+                latitude: 3.518703002, 
+                longitude: -76.20951816, //TODO GET POINTS
+                renderLines: false,
+                div: $("#profile_pic_oscar")
+            },
+            {
+                latitude: 3.518703002, 
+                longitude: -76.20951816,//TODO GET POINTS
+                renderLines: false,
+                div: $("#profile_pic_ediberto")
+            },
+            {
+                latitude: 3.518703002, 
+                longitude: -76.20951816, //TODO GET POINTS
+                renderLines: false,
+                div: $("#profile_pic_trujillo")
+            },
+            {
+                latitude: 3.518703002, 
+                longitude: -76.20951816,   //TODO GET POINTS
+                renderLines: false,
+                div: $("#profile_pic_otania")
+            } ,
+            {
+                latitude: 3.518703002, 
+                longitude: -76.20951816,   //TODO GET POINTS
+                renderLines: false,
+                div: $("#profile_pic_diego")
+            }
+
+
+         ];
+            
+            _.each(mapTriggers, function(item){
+                renderLines: false
+            });
+
+            var canvas = document.getElementById('lineOverlay');
+            canvas.width  = $(window).width();
+            canvas.height = $(window).height();
+            var ctx = canvas.getContext('2d');
+
+            function addGeoJsonToMap(map, filename, pane, styleFunc){
+                $.getJSON(filename, function(json) {
+                    var layer = L.geoJSON(json, {
+                        style: styleFunc,
+                        pane: pane
+                    }).addTo(map);
+                });
+            }
+
+            function renderLinesToMap(map){
+                //TODO KARL
+                return;
+                var mapPos = $("#map").offset();
+                var yoffset = mapPos.top-window.scrollY;
+
+                ctx.canvas.width  = window.innerWidth;
+                ctx.canvas.height = window.innerHeight;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                _.each(personTriggers, function(item, index){
+                    if(item.renderLines == true){
+                        var pos = $(item.div).offset();
+                        var centerPoint = map.latLngToContainerPoint(L.latLng( item.latitude, item.longitude));
+                        ctx.beginPath();
+                        ctx.lineWidth = 3;
+                        ctx.strokeStyle = "#73b7ec";
+                        ctx.lineCap="round";
+                        ctx.moveTo(pos.left+100, pos.top+50-  $(window).scrollTop());
+                        ctx.lineTo(mapPos.left + centerPoint.x, yoffset+ centerPoint.y);
+                        ctx.stroke();
+                    }
+                });
+
+                _.each(mapTriggers, function(item,index){
+
+                    if(item.renderLines == true){
+                        var pos = $(item.mapTriggerCircle).offset();
+                        
+
+                        ctx.beginPath();
+                        ctx.lineWidth = 4;// 8*(1-e.progress/1.5);
+                        ctx.strokeStyle = item.color;
+                        ctx.lineCap="round";
+
+                        var itemWidth = $(item.mapTriggerCircle).width();
+
+                        //TODO conditionally skip if the bounds are not within the map, or fix partially bounded inclusions
+                        ctx.moveTo(pos.left+itemWidth-6, pos.top+15 -  $(window).scrollTop());
+                         
+                        if(item.centerLatitude != undefined){
+                            var centerPoint = map.latLngToContainerPoint(L.latLng( item.centerLatitude, item.centerLongitude));
+                            var leftPoint = map.latLngToContainerPoint(L.latLng( item.centerLatitude, item.leftLongitude));
+                            ctx.quadraticCurveTo((pos.left + mapPos.left)/2, 250 , mapPos.left + leftPoint.x,  yoffset+ leftPoint.y  );
+                            ctx.arc(mapPos.left + centerPoint.x, yoffset + centerPoint.y, Math.abs(centerPoint.x - leftPoint.x),  Math.PI, Math.PI+0.001  , true);
+                        } else if(item.leftLatitude != undefined){
+                            var leftPoint = map.latLngToContainerPoint(L.latLng( item.leftLatitude, item.leftLongitude));
+                            ctx.quadraticCurveTo((pos.left + mapPos.left)/2, 250 , mapPos.left + leftPoint.x,  yoffset+ leftPoint.y  );
+
+                        } else {
+                            var minPoint = map.latLngToContainerPoint(L.latLng( item.minLatitude, item.minLongitude));
+                            var maxPoint = map.latLngToContainerPoint(L.latLng( item.maxLatitude, item.maxLongitude));
+                            ctx.quadraticCurveTo((pos.left + mapPos.left)/2,250, mapPos.left + minPoint.x,  yoffset+ ((minPoint.y + maxPoint.y)/2)  );
+                            ctx.lineTo(mapPos.left + minPoint.x, yoffset+ minPoint.y);
+                            ctx.lineTo(mapPos.left + maxPoint.x, yoffset+ minPoint.y);
+                            ctx.lineTo(mapPos.left + maxPoint.x, yoffset+ maxPoint.y);
+                            ctx.lineTo(mapPos.left + minPoint.x, yoffset+ maxPoint.y);
+                            ctx.lineTo(mapPos.left + minPoint.x, yoffset+ ((minPoint.y + maxPoint.y)/2)   );
+                        }                           
+                        ctx.stroke();
+                    } else {
+                      //  console.log(item);
+                    }
+                }); 
+            }
+
+            $.i18n.debug = true;
+
+            var selectedLanguage = localStorage.getItem('language');
+            if(selectedLanguage != null){
+                $.i18n().locale = selectedLanguage;
+                //$("#lang-select").val(selectedLanguage);
+            } else {
+                $.i18n().locale = 'en';
+            }
+
+            function updateCaptions(){
+                $(".gallery").children().each(function () {
+                    var captionKey =  $(this).data("translate-caption");
+                    if(captionKey != null){
+                        $(this).data("caption",  $.i18n(captionKey));
+                    } else {
+                        console.log(captionKey);
+                        $(this).data("caption",  'CAPTION NEEDED');
+                    }
+                });
+            }
+            function scrollToBody(){
+
+                $('html, body').delay(800).animate({
+                    scrollTop: $("#backgroundSection").offset().top
+                }, 1000, 'easeInOutQuad');
+            }
+
+            $.i18n().load( {
+                en: 'i18n/en.txt',
+                es: 'i18n/es.txt'
+             }).done( function() {
+                $('body').i18n();
+
+                updateCaptions();
+
+                $(".person_card").click( function(e){
+                    console.log(e.target);
+                    if( $(e.target).hasClass('gallery-picture')){
+                        return;
+                    } 
+                    var child_body = $(this).children(".person_body");
+                    var more_button = $(this).children(".more-button");
+
+                    if(child_body.length == 1){
+                        
+                        if( $(child_body).hasClass('hide')){
+                            $(more_button).addClass('hide');
+                            $(child_body).removeClass('hide');
+                        } else {
+                            $(more_button).removeClass('hide');
+                            $(child_body).addClass('hide');
+                        }
+                    }
+                });
+
+                var controller = new ScrollMagic.Controller();
+ 
+                // set up the language selector
+                $("#lang_english").click(function() {
+                    localStorage.setItem('language', 'en');
+                    $.i18n().locale = 'en';
+                    $('body').i18n();
+                    updateCaptions();
+                    scrollToBody();
+                });
+
+                 $("#lang_espanol").click(function() {
+                    localStorage.setItem('language', 'es');
+                    $.i18n().locale = 'es';
+                    $('body').i18n();
+                    updateCaptions();
+                    scrollToBody();
+                });
+               
+
+                var map = L.map('map').setView([3.41, -76.24], 3);
+                L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+                }).addTo(map);
+                map.scrollWheelZoom.disable();
+
+                map.on('zoom', function (e) { 
+                    renderLinesToMap(map);
+                });
+
+                map.on('move', function (e) { 
+                    renderLinesToMap(map);
+                });
+
+                map.on('zoomstart', function(e){
+                    $("#lineOverlay").css('opacity', 0);
+                });
+                map.on('zoomend', function(e){
+                    renderLinesToMap(map);
+                    $("#lineOverlay").css('opacity', 1);
+                });
+
+                var mapScene = new ScrollMagic.Scene({
+                    triggerHook: "onLeave",
+                    triggerElement: "#backgroundSection", 
+                    duration: 0,
+                    reverse: true
+                })
+                .setPin("#map")
+                .addTo(controller);
+
+                $( window ).resize(function() {
+                    map.invalidateSize();
+                   // mapScene.refresh();
+                    renderLinesToMap(map);
+                });
+                
+                $(window).scroll(function() {
+                    renderLinesToMap(map);
+                    // cancel animation move to for language selector
+                });
+
+                var pane_colombia = map.createPane('colombia');
+                var pane_departments = map.createPane('departments');
+                var pane_fund = map.createPane('fund');
+                pane_fund.style.display = 'initial';
+                pane_departments.style.display = 'initial';
+                pane_colombia.style.display = 'initial';
+
+                addGeoJsonToMap(map, "data/Col_limits.txt", 'colombia', function(){
+                    return {  
+                        weight: 4,
+                        opacity: 1,
+                        color: '#fec44f', 
+                        fillOpacity: 0.0,
+                    };
+                });
+
+                addGeoJsonToMap(map, "data/Dep_fondo.txt", 'departments', function(){
+                    return {  
+                        weight: 3,
+                        opacity: 1,
+                        color: '#7fcdbb', 
+                        fillOpacity: 0.0 
+                    };
+                });
+
+                addGeoJsonToMap(map, "data/Fondo_work_areas.txt", 'fund', function(feature, i){
+
+                    if(feature.properties.NOM_CUENCA === 'Bolo'){
+                        return  {  
+                            weight: 1, 
+                            opacity: 1,  
+                            color: 'white', 
+                            fillOpacity: 0.7,
+                            fillColor: "#c51b8a",
+                        };
+                    } else {
+                        return  {  
+                            weight: 1, 
+                            opacity: 1,  
+                            color: 'white', 
+                            fillOpacity: 0.7,
+                            fillColor: "#31a354",
+                        };  
+                    }
+                });
+
+                _.each(personTriggers, function(item, index){
+                    var duration = 200;
+                    new ScrollMagic.Scene({
+                        triggerHook: "onCenter",
+                        triggerElement: "#" + $(item.div).attr('id'), 
+                        reverse: true,
+                    })
+                    .on("enter", function (e) {
+                        item.renderLines = true;
+                        map.stop()	
+                        map.setView([3.41, -76.24], 10); 
+                    })
+                    .on("leave", function(e){
+                        item.renderLines = false;
+                    })
+                    .on("progress", function (e) {
+                        renderLinesToMap(map);
+                    })
+                    .duration(duration)
+                    .addTo(controller);
+
+                });
+                
+                _.each(mapTriggers, function(item,index){
+
+                    item.mapTriggerCircle = $("<span class='mapTriggerCircle' id='" + item.triggerElement + "_circle'></span>");
+                    $(item.mapTriggerCircle).text("○")
+                    $(item.triggerElement).after(item.mapTriggerCircle );
+                    
+                    //TODO does this need to be recalculated upon page width change reflow.
+                    // Can we use a fixed value and then limit to one at a time? 
+                    var duration = 200;
+                    if(index < mapTriggers.length-1){
+                        var nextTrigger = $(mapTriggers[index+1].triggerElement).offset();
+                        duration = nextTrigger.top - $(item.triggerElement).offset().top;
+                    } 
+                    new ScrollMagic.Scene({
+                        triggerHook: "onCenter",
+                        triggerElement: item.triggerElement, 
+                        reverse: true,
+                    })
+                    .on("enter", function (e) {
+                        map.getPane(item.pane).style.display = 'initial';
+                        item.renderLines = true;
+                        map.stop()	
+                        map.setView([3.41, -76.24], item.mapZoomLevel); 
+                        $(item.mapTriggerCircle).css('color', "#FFF");
+                    })
+                    .on("leave", function(e){
+                        item.renderLines = false;
+                        $(item.mapTriggerCircle).css('color', '#CCC');                       
+                    })
+                    .on("progress", function (e) {
+                        renderLinesToMap(map);
+                    })
+                    .duration(duration)
+                    .addTo(controller);
+
+                });
+            });        
+        });
+    </script>
+</body>
+</html>
+
