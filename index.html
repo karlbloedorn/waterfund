@@ -44,19 +44,21 @@
     </div>
 
      <section id="introSection" class="full-screen">
+            
         <div id='video'>
-        </div>
-        <div id="titlecontent">
-            <span data-i18n="project_title"></span>
-            <h3><span data-i18n="project_subtitle"></span></h3>
-        </div>   
-        <div id="lang_buttons">
-            <button id='lang_english' class="ui black button">
-                    English
-            </button>
-            <button  id='lang_espanol' class="ui black button">
-                    Español
-            </button>
+            <div id="titlecontent">
+                <span data-i18n="project_title"></span>
+                <h3><span data-i18n="project_subtitle"></span></h3>
+            </div>   
+                      
+            <div id="lang_buttons">
+                <button id='lang_english' class="ui black button">
+                        English
+                </button>
+                <button  id='lang_espanol' class="ui black button">
+                        Español
+                </button>
+            </div>
         </div>
     </section>
     <br>
@@ -157,6 +159,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>    
     <script>
         $(document).ready(function(){
+
+/*
+            $("#titlecontent").animate({ opacity: 1.0 }, 1500, 'linear', function () { 
+            });
+
+            $("#lang_buttons").animate({ opacity: 1.0 }, 1500, 'linear', function () { 
+            });*/
+/*
+            if(!$(window).scrollTop()) {
+                setTimeout(function(){
+                    $(".full-screen").animate({ height: '80vh' }, 700, 'linear', function () { 
+                        setTimeout(function(){
+                            $(".full-screen").animate({height: '100vh' }, 700, 'linear', function () { 
+                            });
+                        }, 300);
+                    });
+                }, 1500);
+            }*/
+
+
             var data=[
                 {
                     items:[{key:"amalia",images:["DSC00041","DSC00492","101_1665","108_7672","DSC07261","DSC07278"]},
@@ -308,6 +330,22 @@
                 });
             }
 
+            _.each(mapTriggers, function(mapTrigger, i){
+
+                mapTrigger.polygon = L.polygon([
+                    [mapTrigger.minLatitude , mapTrigger.minLongitude],
+                    [mapTrigger.minLatitude ,  mapTrigger.maxLongitude],
+                    [ mapTrigger.maxLatitude,  mapTrigger.maxLongitude],
+                    [ mapTrigger.maxLatitude,  mapTrigger.minLongitude],
+                ], {
+                    color: "#FFF",
+                    fillColor: "#000000",
+                    fillOpacity: 0.0,
+                    weight: 3,
+                    pane: 'test'
+                });
+            });
+
             $.i18n().load( {
                 en: 'i18n/en.txt',
                 es: 'i18n/es.txt'
@@ -318,6 +356,20 @@
 
                     $(".mobile").find(".highlighted_word").removeClass("highlighted_word");
                     $(".highlighted_word").append(" <i class='location arrow blue icon'></i>");
+
+                    _.each(mapTriggers, function(mapTrigger, i){
+
+                    $(mapTrigger.triggerElement).hover(
+                        function() {
+                            map.stop()	
+                            map.setView([3.41, -76.24], mapTrigger.mapZoomLevel); 
+                            mapTrigger.polygon.addTo(map);
+                        }, function() {
+                            mapTrigger.polygon.removeFrom(map);
+                        }
+                        );
+                    });
+
                 }
                 renderLanguage();
 
@@ -381,32 +433,6 @@
                             fillColor: "#31a354",
                         };  
                     }
-                });
-
-                _.each(mapTriggers, function(mapTrigger, i){
-
-                    var polygon = L.polygon([
-                        [mapTrigger.minLatitude , mapTrigger.minLongitude],
-                        [mapTrigger.minLatitude ,  mapTrigger.maxLongitude],
-                        [ mapTrigger.maxLatitude,  mapTrigger.maxLongitude],
-                        [ mapTrigger.maxLatitude,  mapTrigger.minLongitude],
-                    ], {
-                        color: "#FFF",
-                        fillColor: "#000000",
-                        fillOpacity: 0.0,
-                        weight: 3,
-                        pane: 'test'
-                    });
-
-                    $(mapTrigger.triggerElement).hover(
-                        function() {
-                            map.stop()	
-                            map.setView([3.41, -76.24], mapTrigger.mapZoomLevel); 
-                            polygon.addTo(map);
-                        }, function() {
-                            polygon.removeFrom(map);
-                        }
-                    );
                 });
             });        
         });
