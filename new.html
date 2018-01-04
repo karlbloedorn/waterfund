@@ -18,44 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" />    
     <link rel="stylesheet" href="site.css" />
     <style>
-        .footer.segment {
-            padding: 5em 0em;
-         }
-        .itemsection{
-            margin-bottom: 50px;
-        }
-        .background_text{
-            padding-top: 1em;
-            font-size: 1.5em;
-            font-family: 'Encode Sans', sans-serif;
-            color: #9E9E9E;
-        }
-        .person_quote_name{
-            display: block;
-            padding-top: 0.5em;
-            padding-left: 0.5em;
-            font-size: 1.5em;
-            font-family: 'Encode Sans', sans-serif;
-            color: black;
-        }
-        .sectionheader{
-            font-weight: 100 !important;
-            font-family: 'Encode Sans', sans-serif !important;
-            font-size: 2em !important;
-            color: black !important;
-        }
-        .itemquote{
-            font-size: 1.2em !important;
-        }
-        .gallery-picture{
-            margin: 4px;
-        }
-       .highlighted_word{
-           cursor: pointer;
-       }
-       .person_card{
-           cursor: pointer;
-       }
+   
     </style>
 </head>
 <body>
@@ -63,7 +26,7 @@
         <div id="detail_modal_header" class="header">
         </div>
         <div id="detail_modal_scrollarea" class="scrolling image content">
-            <div class="ui large rounded image">
+            <div id="detail_modal_profile_image_wrapper" class="ui large rounded image">
                 <img id="detail_modal_profile_image" class='img-circle selected'>
             </div>
             <div class="description">
@@ -80,7 +43,6 @@
         </div>
     </div>
 
-     <canvas class='visible-lg-block visible-md-block' id="lineOverlay"></canvas>      
      <section id="introSection" class="full-screen">
         <div id='video'>
         </div>
@@ -97,13 +59,13 @@
             </button>
         </div>
     </section>
-    <br><br><br>
+    <br>
     <div class="ui container">
-        <h2 class="ui header sectionheader">
-            <span data-i18n="background_title"></span>
-        </h2>
+       
         <div class="ui grid">
             <div class="ten wide computer only column">
+                <div class='sectionheader' data-i18n="background_title"></div>
+                    
                 <p class='background_text'><span data-i18n="[html]background_intro"></span>
                 </p>
                 <p class='background_text'><span data-i18n="[html]background_watersheds"></span>
@@ -116,6 +78,8 @@
             </div>    
             
             <div class="sixteen wide mobile tablet only column">
+                    <div class='sectionheader' data-i18n="background_title"></div>
+                        
                     <p class='background_text'><span data-i18n="[html]background_intro"></span>
                     </p>
                     <br>
@@ -134,10 +98,10 @@
             </div>
         </div>
     </div>
-    <br><br>
+
     <div id='sections'>
+
     </div>
-    <br>
     <br>
     <center>
         <div class="ui small images">
@@ -193,7 +157,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>    
     <script>
         $(document).ready(function(){
-            var data=[{items:[{key:"amalia",images:["DSC00041","DSC00492","101_1665","108_7672","DSC07261","DSC07278"]}]},{items:[{key:"guido",images:["DSC00314","DSC00330","DSC00339","DSC05337","P1010071"]},{key:"school",images:["DSC00157","DSC00134","DSC00136","DSC00143"]},{key:"manuel",images:["DSC02800","DSC02784","DSC02791","P1010911","P1010913"]},{key:"community",images:["DSC00078","DSC00089","DSC00093","DSC00115","DSC00123"]}]},{items:[{key:"diego",images:["DSC00428","DSC00446","P1030766","P1030882","P1050733"]},{key:"humberto",images:["DSC00374","108_6873","108_7543","108_7546","P1100449","108_7536"]},{key:"oscar",images:["DSC00500","DSC00507","DSC00509","DSC00531"]}]},{items:[{key:"otoniel",images:["DSC00426","P1140705","P1140712","P1160183","P1160992"]},{key:"ediberto",images:["DSC00021","DSC00032","P1080776","P1120067","108_7313"]},{key:"trujillo",images:["P1090557","P1100233","P1100235","P1100374","P1100398"]}]},{"items" :[]}];
+            var data=[
+                {
+                    items:[{key:"amalia",images:["DSC00041","DSC00492","101_1665","108_7672","DSC07261","DSC07278"]}]},
+                {
+                    items:[{key:"guido",images:["DSC00314","DSC00330","DSC00339","DSC05337","P1010071"]},
+                        {key:"school",images:["DSC00157","DSC00134","DSC00136","DSC00143"]},
+                        {key:"manuel",images:["DSC02800","DSC02784","DSC02791","P1010911","P1010913"]},
+                        {key:"community",images:["DSC00078","DSC00089","DSC00093","DSC00115","DSC00123"]}]},
+                {
+                    items:[{key:"diego",images:["DSC00428","DSC00446","P1030766","P1030882","P1050733"]},
+                        {key:"humberto",images:["DSC00374","108_6873","108_7543","108_7546","P1100449","108_7536"]},
+                        {key:"oscar",images:["DSC00500","DSC00507","DSC00509","DSC00531"]}]},
+                {
+                    items:[{key:"otoniel",images:["DSC00426","P1140705","P1140712","P1160183","P1160992"]},
+                        {key:"ediberto",images:["DSC00021","DSC00032","P1080776","P1120067","108_7313"]},
+                        {key:"trujillo",images:["P1090557","P1100233","P1100235","P1100374","P1100398"]}]},
+                {
+                    items :[
+                        {key: "employee", images: ["DSC00546", "DSC00563", "DSC00560", "DSC00423", "DSC00385"]}
+                    ]}];
+
             var mapTriggers=[
                 {triggerElement:"#item_colombia",mapZoomLevel:4,minLatitude:-5,maxLatitude:15,minLongitude:-79.85,maxLongitude:-65.833,color:"#fec44f",leftLatitude:4.166858,leftLongitude:-77.525039,pane:"colombia"},
                 {triggerElement:"#item_cauca_river",mapZoomLevel:6,minLatitude:.9,maxLatitude:5.30535,minLongitude:-78.213,maxLongitude:-75.48148,color:"#7fcdbb",pane:"departments"},
@@ -203,86 +187,55 @@
             // Add all the sections
             var sections = $("#sections");
             _.each(data, function(section, sectionIndex){
-                var section_container = $("<div class='ui container itemsection' >");
-                var section_header = $("<h2 class='ui header sectionheader'>");
-                var section_header_text = $("<span>");
+                var section_container = $("<div>");
+                var section_header_text = $("<h2 class='ui sectionheader'>");
                 $(section_header_text).attr('data-i18n', 'section_header_' + (sectionIndex+1));
-                $(section_container).append(section_header);
-                $(section_header).append(section_header_text);
-                var item_container = $("<div class='itemcontainer'>");
+                $(section_container).append(section_header_text);
 
-                //var item_container = $("<div class='itemcontainer ui divided link items'>");
+                var section_grid = $("<div class='ui container'>");
+                $(sections).append(section_grid);
+                $(section_grid).append(section_container);
+                var item_container = $("<div class='ui doubling stackable cards'>");
+                if(section.items.length > 2){
+                    $(item_container).addClass('three');
+                } else {
+                    $(item_container).addClass('two');
+                }
                 $(section_container).append(item_container);
 
                 // Add each item in the section
                 _.each(section.items, function(item, itemIndex){
-
-
-                    // list item style
-                    /* var item_div = $("<div class='item'>");
-                    $(item_container).append(item_div);
-                    var profile_image_wrapper = $("<div class='ui circular small image'>");
-                    var profile_image = $("<img>");
-                    $(profile_image).attr('src', 'people/' + item.key + ".png");
-                    $(profile_image_wrapper).append(profile_image);
-                    $(item_div).append(profile_image_wrapper);
-                    var item_content = $("<div class='content'>");
-                    $(item_div).append(item_content);
-                    var item_header = $("<div class='header'>");
+                    var item_card = $("<div class='ui raised link card'>");
+                    $(item_card).addClass('blue');
+                    $(item_container).append(item_card);
+                    var item_card_content = $("<div class='content'>");
+                    $(item_card).append(item_card_content);
+                    var item_header = $("<div class='header'></div>");
                     $(item_header).attr('data-i18n', 'person_name_' + item.key);
-                    $(item_content).append(item_header);
-                    var item_description = $("<div class='description'>");
+                    $(item_card_content).append(item_header); 
+                    var item_description = $("<div class=''>");
                     $(item_description).attr('data-i18n', 'person_quote_' + item.key);
-                    $(item_content).append(item_description);
-                    var item_extra = $('<div class="extra">');
-                    $(item_content).append(item_extra);
-                    var item_right_button = $('<div class="ui right floated button">');
-                    $(item_extra).append(item_right_button);
-                    var item_button_text = $("<i class='chevron right icon'></i> <span class='learnmore' data-i18n='learn_more'></span>");
-                    $(item_right_button).append(item_button_text);*/
-
-                    var item_div = $("<div class='person_card ui clearing raised segment'>");
-                    $(item_container).append(item_div);
-                    //$(item_div).html("<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p></div>");
-                 
-                    var profile_image_wrapper = $("<div class='ui circular right small image floated'>");
-                    var profile_image = $("<img>");
-                    $(profile_image).attr('src', 'people/' + item.key + ".png");
-                    $(item_div).append(profile_image_wrapper);
-                    $(profile_image_wrapper).append(profile_image);
-
-                    var item_description = $("<span class='background_text description'>");
-                    $(item_description).attr('data-i18n', 'person_quote_' + item.key);
-                    $(item_div).append(item_description);
-
-                    var person_header = $("<span class='person_quote_name'></span>");
-                    $(person_header).attr('data-i18n', 'person_name_' + item.key);
-                    $(item_div).append(person_header);
-
+                    $(item_card_content).append(item_description);
+                    var avatar_image = $("<img class='ui tiny circular image'>");
+                    $(avatar_image).attr('src', 'people/' + item.key + ".png");
                     var gallery = $("<div class='summary_gallery gallery'>");
-                    $(item_div).append(gallery);
+                    $(item_card_content).append(gallery);
 
                     _.each(item.images, function(image, imageIndex){
-                            var image_link = $("<a>");
-                            $(image_link).attr("data-fancybox", item.key);
-                            $(image_link).attr("data-translate-caption", 'caption_' + item.key + '_' + (imageIndex +1));
-                            $(image_link).attr("href", 'img/' +item.key + '/' + image + '.JPG');
-                            $(gallery).append(image_link);
-
-                            var img = $("<img class='gallery-picture'>");
-                            $(img).attr('src', 'img/' +item.key + '/' + image + '_tn.JPG');
-                            $(image_link).append(img);
-                            $(img).css('height', '80px' );
+                        var img = $("<div class='gallery-picture'>");
+                        $(img).css('background-image', "url('img/" +item.key + '/' + image + "_tn.JPG')");
+                        $(gallery).append(img);
                     });
 
-                    $(item_div).click(function(e){
-
-                        if($(e.target).hasClass('gallery-picture')){
-                            return;
-                        }
-
+                    $(item_card).click(function(e){
                         $("#detail_modal_story").html( $.i18n( 'person_story_' + item.key, { 'interpolation': {'escapeValue': false} } ));
                         $("#detail_modal_header").html($.i18n('person_name_' + item.key));
+
+                        if(item.key == 'employee'){
+                            $("#detail_modal_profile_image_wrapper").css('display', 'none');
+                        } else {
+                            $("#detail_modal_profile_image_wrapper").css('display', 'block');
+                        }
                         $("#detail_modal_profile_image").attr("src", 'people/' + item.key + ".png");
                         $("#detail_modal_gallery").html("");
 
@@ -318,7 +271,6 @@
                            
                     });
                 });
-                $(sections).append(section_container);
             });
 
             $.i18n.debug = false;
