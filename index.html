@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 	<meta name="viewport" content="initial-scale=1">
-    <title data-i18n="appname-title"></title>
+    <title id="title">Putting Suppliers On The Map</title>
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -62,12 +62,12 @@
         </div>
     </section>
     <br>
-    <div class="ui container">
-       
+    <div class="ui container" id="background">
+
         <div class="ui grid">
             <div class="ten wide computer only column">
-                <div class='sectionheader' data-i18n="background_title"></div>
-                    
+                <h1 data-i18n="background_title" style="margin-top: 10px !important;"></h1> 
+
                 <p class='background_text'><span data-i18n="[html]background_intro"></span>
                 </p>
                 <p class='background_text'><span data-i18n="[html]background_watersheds"></span>
@@ -80,8 +80,8 @@
             </div>    
             
             <div class="sixteen wide mobile tablet only column">
-                    <div class='sectionheader' data-i18n="background_title"></div>
-                        
+                    <h1 data-i18n="background_title" style="margin-top: 10px !important;"></h1> 
+
                     <p class='background_text'><span data-i18n="[html]background_intro"></span>
                     </p>
                     <br>
@@ -113,12 +113,18 @@
             <a href="http://environment.umn.edu/" class="ui medium image">
                 <img style="width:128px;height:128px;" class="ui medium image" src="img/logos/logo_ione.png"/>
             </a>
-            <img style="width:128px;height:128px;" class="ui medium image" src="img/logos/logo_fondo_de_agua.png"/>
+            <a href="http://www.asocana.org/modules/documentos/11981.aspx" class="ui medium image">
+                <img style="width:128px;height:128px;" class="ui medium image" src="img/logos/logo_fondo_de_agua.png"/>
+            </a>
             <a href="https://twitter.com/asobolo?lang=en" class="ui medium image">
                 <img style="width:128px;height:128px;" class="ui medium image" src="img/logos/logo_asobolo.png"/>
             </a>
-            <a href="https://woods.stanford.edu/" class="ui medium image">
-                <img style="width:128px;height:128px;" class="ui medium image" src="img/logos/logo_stanford.png"/>
+     
+            <a href="http://www.uhero.hawaii.edu/" class="ui medium image">
+                <img style="width:128px;height:128px;" class="ui medium image" src="img/logos/logo_uhero.png"/>
+            </a>
+            <a href="http://www.wrrc.hawaii.edu" class="ui medium image">
+                <img style="width:128px;height:128px;" class="ui medium image" src="img/logos/logo_wwrc.png"/>
             </a>
         </div>
     </center>
@@ -126,23 +132,47 @@
     <div class="ui inverted vertical footer segment">
         <div class="ui container">
             <div class="ui stackable inverted divided equal height stackable grid">
-            <div class="three wide column">
-                <h4 class="ui inverted header">About</h4>
-                <div class="ui inverted link list">
-                <a href="#" class="item">Contact Us</a>
-                <a href="#" class="item">Funding</a>
+                <div class="four wide column">
+                    <h4 class="ui inverted header">About</h4>
+                    <div class="ui inverted link list">
+                    <a href="#" class="item">Contact Us</a>
+                    <a href="#" class="item">Funding</a>
+                    </div>
                 </div>
-            </div>
-            <div class="three wide column">
-                <h4 class="ui inverted header">Social Media</h4>
-                <div class="ui inverted link list">
+                <div class="seven wide column">
                     
+                    <h4 class="ui inverted header">Credits &amp; Acknowledgements</h4>
+                    <p>
+                        This project was made possible by the participants in Agua por la Vida who generously accepted to share their stories with us through this website. 
+                        <br><br>
+                        This project was led by Kelly Meza Prado in partnership with Asobolo, Agua por la Vida, and the Natural Capital project with the support of the University of Minnesota and the Belmont Forum through ClimateWise. 
+                        <br><br>
+                        We thank Kate Brauman, Leah Bremer, and Ryan Noe for the comments and support provided. 
+                        <br><br>
+                        Special thanks to Karl Bloedorn for donating his time to provide design, web development, and overall technical support. 
+                    </p>
                 </div>
-            </div>
-            <div class="seven wide column">
-                <h4 class="ui inverted header">Footer Header</h4>
-                <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
-            </div>
+                <div class="five wide column">
+                    <h4 class="ui inverted header">Send us your comment</h4>
+
+                    <form class="ui form inverted">
+                            <div class="field">
+                                <label>Name</label>
+                                <input type="text" name="name" placeholder="">
+                            </div>
+                            <div class="field">
+                                <label>Email Address</label>
+                                <input type="text" name="email" placeholder="user@domain.com">
+                            </div>
+
+                            <div class="field">
+                                    <label>Comment</label>
+                                    <textarea rows="4"></textarea>
+                                </div>
+                        
+                            <button class="ui button" type="submit">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -203,7 +233,7 @@
                     ]}];
 
             var mapTriggers=[
-                {triggerElement:"#item_colombia",mapZoomLevel:4,minLatitude:-5,maxLatitude:15,minLongitude:-79.85,maxLongitude:-65.833,color:"#fec44f",leftLatitude:4.166858,leftLongitude:-77.525039,pane:"colombia"},
+         /* {triggerElement:"#item_colombia",mapZoomLevel:4,minLatitude:-5,maxLatitude:15,minLongitude:-79.85,maxLongitude:-65.833,color:"#fec44f",leftLatitude:4.166858,leftLongitude:-77.525039,pane:"colombia"},*/
                 {triggerElement:"#item_cauca_river",mapZoomLevel:6,minLatitude:.9,maxLatitude:5.30535,minLongitude:-78.213,maxLongitude:-75.48148,color:"#7fcdbb",pane:"departments"},
                 {triggerElement:"#item_fifteen_watersheds",mapZoomLevel:8,minLatitude:2.649586,maxLatitude:5.25117,minLongitude:-76.869759,maxLongitude:-75.70077,color:"#31a354",pane:"fund"},
                 {triggerElement:"#item_asobolo",mapZoomLevel:10,minLatitude:3.34986,maxLatitude:3.60117,minLongitude:-76.491,maxLongitude:-76.030077,color:"#c51b8a",pane:"fund"}];
@@ -212,7 +242,7 @@
             var sections = $("#sections");
             _.each(data, function(section, sectionIndex){
                 var section_container = $("<div>");
-                var section_header_text = $("<h2 class='ui sectionheader'>");
+                var section_header_text = $("<h1 class='ui'>");
                 $(section_header_text).attr('data-i18n', 'section_header_' + (sectionIndex+1));
                 $(section_container).append(section_header_text);
 
@@ -354,6 +384,8 @@
                 function renderLanguage(){
                     $('body').i18n();
 
+                    //project_title
+
                     $(".mobile").find(".highlighted_word").removeClass("highlighted_word");
                     $(".highlighted_word").append(" <i class='location arrow blue icon'></i>");
 
@@ -373,17 +405,24 @@
                 }
                 renderLanguage();
 
+                function scrollDown(){
+                    $('html, body').animate({scrollTop:$('#background').position().top}, 'slow');
+                    $('#background').focus();
+                }
+                
                 // set up the language selector
                 $("#lang_english").click(function() {
                     localStorage.setItem('language', 'en');
                     $.i18n().locale = 'en';
                     renderLanguage();
+                    scrollDown();
                 });
 
                  $("#lang_espanol").click(function() {
                     localStorage.setItem('language', 'es');
                     $.i18n().locale = 'es';
                     renderLanguage();
+                    scrollDown();
                 });
 
                 var map = L.map('map').setView([3.41, -76.24], 3);
