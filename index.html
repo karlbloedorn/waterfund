@@ -23,8 +23,8 @@
 </head>
 <body>
     <div id="detail_modal" class="ui longer modal">
-        <div id="detail_modal_header" class="header">
-        </div>
+        <h2 id="detail_modal_header" class="header">
+        </h2>
         <div id="detail_modal_scrollarea" class="scrolling image content">
             <div id="detail_modal_profile_image_wrapper" class="ui large circular image">
                 <img id="detail_modal_profile_image" class='img-circle selected'>
@@ -62,7 +62,7 @@
         </div>
     </section>
     <br>
-    <div class="ui container" id="background">
+    <div class="ui container" id="background" role="main">
 
         <div class="ui grid">
             <div class="ten wide computer only column">
@@ -108,23 +108,22 @@
     <center>
         <div class="ui small images">
             <a href="https://www.naturalcapitalproject.org/" class="ui medium image">
-                <img style="width:128px;height:128px;" class="ui medium image" src="img/logos/logo_natcap.png"/>
+                <img style="width:128px;height:128px;" class="ui medium image" alt="Natural Capital Project" src="img/logos/logo_natcap.png"/>
             </a>
             <a href="http://environment.umn.edu/" class="ui medium image">
-                <img style="width:128px;height:128px;" class="ui medium image" src="img/logos/logo_ione.png"/>
+                <img style="width:128px;height:128px;" class="ui medium image" alt="University of Minnesota, Institute on the Environment" src="img/logos/logo_ione.png"/>
             </a>
             <a href="http://www.asocana.org/modules/documentos/11981.aspx" class="ui medium image">
-                <img style="width:128px;height:128px;" class="ui medium image" src="img/logos/logo_fondo_de_agua.png"/>
+                <img style="width:128px;height:128px;" class="ui medium image" alt="Fondo Agua por la vida y la sostenibilidad" src="img/logos/logo_fondo_de_agua.png"/>
             </a>
             <a href="https://twitter.com/asobolo?lang=en" class="ui medium image">
-                <img style="width:128px;height:128px;" class="ui medium image" src="img/logos/logo_asobolo.png"/>
+                <img style="width:128px;height:128px;" class="ui medium image" alt="Asobolo" src="img/logos/logo_asobolo.png"/>
             </a>
-     
             <a href="http://www.uhero.hawaii.edu/" class="ui medium image">
-                <img style="width:128px;height:128px;" class="ui medium image" src="img/logos/logo_uhero.png"/>
+                <img style="width:128px;height:128px;" class="ui medium image" alt="University of Hawaii, Economic Research Organization" src="img/logos/logo_uhero.png"/>
             </a>
             <a href="http://www.wrrc.hawaii.edu" class="ui medium image">
-                <img style="width:128px;height:128px;" class="ui medium image" src="img/logos/logo_wwrc.png"/>
+                <img style="width:128px;height:128px;" class="ui medium image" alt="University of Hawaii at Manoa, Water Resources Research Center" src="img/logos/logo_wwrc.png"/>
             </a>
         </div>
     </center>
@@ -158,19 +157,19 @@
                     <form class="ui form inverted">
                             <div class="field">
                                 <label>Name</label>
-                                <input type="text" name="name" placeholder="">
+                                <input type="text" id="FORM_name" name="name" placeholder="">
                             </div>
                             <div class="field">
                                 <label>Email Address</label>
-                                <input type="text" name="email" placeholder="user@domain.com">
+                                <input type="text" id="FORM_email" name="email" placeholder="user@domain.com">
                             </div>
 
                             <div class="field">
                                     <label>Comment</label>
-                                    <textarea rows="4"></textarea>
+                                    <textarea id='FORM_comment' rows="4"></textarea>
                                 </div>
                         
-                            <button class="ui button" type="submit">Submit</button>
+                            <button class="ui button" id="FORM_submit">Submit</button>
                     </form>
                 </div>
             </div>
@@ -190,25 +189,37 @@
     <script>
         $(document).ready(function(){
 
-/*
-            $("#titlecontent").animate({ opacity: 1.0 }, 1500, 'linear', function () { 
+            $("#FORM_submit").click(function(e){
+
+                
+                $("#FORM_submit").addClass('hide');
+
+                var body = {
+                    "name" : $("#FORM_name").val(),
+                    "email" : $("#FORM_email").val(),
+                    "comment" : $("#FORM_comment").val()
+                };                
+
+                $.ajax({
+                    url: "https://waterfundapi.azurewebsites.net/api/LeaveComment",
+                    contentType: "application/json",
+                    dataType: "json",
+                    data: JSON.stringify(body),
+                    success: function(data){
+                        alert("Done");
+                        $("#FORM_submit").removeClass('hide');
+                    },
+                    error: function(){
+                        alert("Unable to submit comment");
+                        $("#FORM_submit").removeClass('hide');
+                    },
+                    type: 'POST',
+                    processData: false,
+                }); 
+                e.preventDefault();             
             });
-
-            $("#lang_buttons").animate({ opacity: 1.0 }, 1500, 'linear', function () { 
-            });*/
-/*
-            if(!$(window).scrollTop()) {
-                setTimeout(function(){
-                    $(".full-screen").animate({ height: '80vh' }, 700, 'linear', function () { 
-                        setTimeout(function(){
-                            $(".full-screen").animate({height: '100vh' }, 700, 'linear', function () { 
-                            });
-                        }, 300);
-                    });
-                }, 1500);
-            }*/
-
-
+        
+            
             var data=[
                 {
                     items:[{key:"amalia",images:["DSC00041","DSC00492","101_1665","108_7672","DSC07261","DSC07278"]},
@@ -398,8 +409,7 @@
                             mapTrigger.polygon.addTo(map);
                         }, function() {
                             mapTrigger.polygon.removeFrom(map);
-                        }
-                        );
+                        });
                     });
 
                 }
