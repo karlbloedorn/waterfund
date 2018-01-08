@@ -153,23 +153,27 @@
                 </div>
                 <div class="five wide column">
                     <h4 class="ui inverted header">Send us your comment</h4>
-
-                    <form class="ui form inverted">
-                            <div class="field">
-                                <label>Name</label>
-                                <input type="text" id="FORM_name" name="name" placeholder="">
-                            </div>
-                            <div class="field">
-                                <label>Email Address</label>
-                                <input type="text" id="FORM_email" name="email" placeholder="user@domain.com">
-                            </div>
-
-                            <div class="field">
-                                    <label>Comment</label>
-                                    <textarea id='FORM_comment' rows="4"></textarea>
-                                </div>
-                        
-                            <button class="ui button" id="FORM_submit">Submit</button>
+                    
+                    <p class='hide' id="FORM_success">
+                        <br>
+                        Thank you for your comment. <br><br>
+                        <a class='ui button' id="FORM_another"> Send Another</a>
+                    </p>
+                    <form class="ui form inverted" id="FORM_all">
+                        <div class="field">
+                            <label>Name</label>
+                            <input type="text" id="FORM_name" name="name" placeholder="">
+                        </div>
+                        <div class="field">
+                            <label>Email Address</label>
+                            <input type="text" id="FORM_email" name="email" placeholder="user@domain.com">
+                        </div>
+                        <div class="field">
+                            <label>Comment</label>
+                            <textarea id='FORM_comment' rows="4"></textarea>
+                        </div>
+                        <img src="img/spinner.gif" class='hide' id="FORM_spinner">
+                        <button class="ui button" id="FORM_submit">Submit</button>
                     </form>
                 </div>
             </div>
@@ -191,7 +195,7 @@
 
             $("#FORM_submit").click(function(e){
 
-                
+                $("#FORM_spinner").removeClass('hide');
                 $("#FORM_submit").addClass('hide');
 
                 var body = {
@@ -206,12 +210,18 @@
                     dataType: "json",
                     data: JSON.stringify(body),
                     success: function(data){
-                        alert("Done");
                         $("#FORM_submit").removeClass('hide');
+                        $("#FORM_spinner").addClass('hide');
+                        $("#FORM_name").val("");
+                        $("#FORM_email").val("");
+                        $("#FORM_comment").val("");
+                        $("#FORM_all").addClass('hide');
+                        $("#FORM_success").removeClass('hide');
                     },
-                    error: function(){
-                        alert("Unable to submit comment");
+                    error: function(res){
                         $("#FORM_submit").removeClass('hide');
+                        $("#FORM_spinner").addClass('hide');
+                        alert(res.responseText);
                     },
                     type: 'POST',
                     processData: false,
@@ -219,6 +229,10 @@
                 e.preventDefault();             
             });
         
+            $("#FORM_another").click(function(){
+                $("#FORM_all").removeClass('hide');
+                $("#FORM_success").addClass('hide');
+            });
             
             var data=[
                 {
@@ -332,8 +346,6 @@
                                 $("#detail_modal_scrollarea").scrollTop(0);
                             }
                         }).modal('show');
-                        
-                           
                     });
                 });
             });
