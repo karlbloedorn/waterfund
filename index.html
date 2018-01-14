@@ -277,7 +277,7 @@
 
                 // Add each item in the section
                 _.each(section.items, function(item, itemIndex){
-                    var item_card = $("<div class='ui raised link card'>");
+                    var item_card = $("<div tabindex='0'role='button' class='ui raised link card'>");
                     $(item_card).addClass('blue');
                     $(item_container).append(item_card);
                     var item_card_content = $("<div class='content'>");

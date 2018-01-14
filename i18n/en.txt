@@ -7,8 +7,8 @@
 		"locale": "en",
 		"message-documentation": "qqq"
 	},
-	"project_title": "Putting Suppliers On The Map",
-	"project_subtitle" : "The motivations of people propelling water conservation",
+	"project_title": "Putting Providers on the Map",
+	"project_subtitle" : "The values that underpin water conservation",
 	"background_title" : "Overview",	
 	"section_header_1" : "Watershed Conservation Through Community Connections",
 	"section_header_2" : "Connections to the Land",
