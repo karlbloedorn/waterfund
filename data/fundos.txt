@@ -1,0 +1,129 @@
+{
+ "fundos":
+[{
+     "loc": [3.46196, -76.61347],
+     "fund": "Biodiversa Acuacali.co",
+     "municipality": "Cali",
+     "twitter" : null,
+     "facebook": null,
+     "website": null,
+     "email" : "ssierra@biodiversaenlinea.com"
+},
+{
+    "loc": [3.04109, -76.24106],
+    "fund": "Corpopalo",
+    "municipality": "Santander de Quilichao",
+    "twitter" : null,
+    "facebook": null,
+    "website": null,
+    "email" : "corpopalo@gmail.com"
+},
+{
+    "loc": [3.29339, -76.3262],
+    "fund": "Asodes",
+    "municipality": "Florida",
+    "twitter" : null,
+    "facebook": "asodes.floridavalle",
+    "website": null,
+    "email" : "asodes1@hotmail.com"
+},
+{
+    "loc": [3.34753, -76.2425],
+    "fund": "Asofrayle",
+    "municipality": "Florida",
+    "twitter" : null,
+    "facebook": "asofrayle",
+    "website": "http://asofrayle.org/",
+    "email" : "asofrayle@asofrayle.org"
+},
+{
+    "loc": [3.46268, -76.22052],
+    "fund": "Asobolo",
+    "municipality": "Pradera",
+    "twitter" : "asobolo",
+    "facebook": null,
+    "website": null,
+    "email" : "asobolo@hotmail.com"
+},
+{
+    "loc": [3.58879, -76.17109],
+    "fund": "Asoamaime y Nima",
+    "municipality": "Palmira",
+    "twitter" : null,
+    "facebook": null,
+    "website": null,
+    "email" : "margarita.vallejo@manuelita.com"
+},
+{
+    "loc": [3.69843, -76.24799],
+    "fund": "Asozabaletas",
+    "municipality": "Cerrito",
+    "twitter" : null,
+    "facebook": null,
+    "website": null,
+    "email" : "asozabaletas@hotmail.com"
+},
+{
+    "loc": [3.78409, -76.22183],
+    "fund": "Asoguabas",
+    "municipality": "Ginebra",
+    "twitter" : null,
+    "facebook": null,
+    "website": null,
+    "email" : "asoguabas1989@gmail.com"
+},
+{
+    "loc": [3.89644, -76.2493],
+    "fund": "Corpoguadalajara",
+    "municipality": "Buga",
+    "twitter" : null,
+    "facebook": null,
+    "website": null,
+    "email" : "corporacionrioguadalajara@gmail.com"
+},
+{
+    "loc": [3.88274, -76.03507],
+    "fund": "Asurtumo",
+    "municipality": "Tulua",
+    "twitter" : null,
+    "facebook": null,
+    "website": null,
+    "email" : "funtumo@telecom.com.co"
+},
+{
+    "loc": [4.07249, -75.96737],
+    "fund": "Asoribu",
+    "municipality": "Andalucia",
+    "twitter" : null,
+    "facebook": "Asoribu",
+    "website": null,
+    "email" : "asoribu@gmail.com"
+},
+{
+    "loc": [4.25603, -76.01681],
+    "fund": "Aurpa",
+    "municipality": "Zarzal",
+    "twitter" : null,
+    "facebook": null,
+    "website": null,
+    "email" : "aurpa2010@gmail.com"
+},
+{
+    "loc": [4.33272, -76.2228],
+    "fund": "Ecofuturo",
+    "municipality": "Bolivar",
+    "twitter" : null,
+    "facebook": null,
+    "website": null,
+    "email" : "ecofuturo.ecofuturo@gmail.com"
+},
+{
+    "loc": [4.12758, -76.35206],
+    "fund": "Fundariofrio y Piedras",
+    "municipality": "Rio Frio",
+    "twitter" : null,
+    "facebook": "pages/FUNDACION-RIOS-RIOFRIO-Y-PIEDRAS/193698170810989",
+    "website": null,
+    "email" : "jhonhenrygr@hotmail.com"
+}]
+}
