@@ -17,7 +17,7 @@
 	"section_header_5" : "Working for Nature and Monitoring Impacts",
 	"learn_more" : "Learn More",
 	"credits_title": "Credits & Acknowledgements",
-	"credits": "This project was led by Kelly Meza Prado from the Natural Capital Project in close partnership with Asobolo through Amalia Morales and Agua por la Vida through Pedro Moreno, with the support of the University of Minnesota and the Belmont Forum through ClimateWise. ",
+	"credits": "We are grateful to each one of the participants highlighted in this website for sharing their stories with us and for their willingness to continue sharing them through this website in an effort to communicate the experiences of people upstream who participate in water fund programs.<div class='paragraph-cut'></div>We thank Fanny Hoyos from Sugar Cane Research Center - Cenicaña and Pedro Morales for their kind advice and contributions to this project. Special thanks to Karl Bloedorn for donating his time to design this website and provide technical support and training.<div class='paragraph-cut'></div>This project was possible through a seed project grand awarded by the Institute on the Environment and the Natural Capital project at the University of Minnesota.",
 	"comment_ask": "Send us a comment",
 	"comment_thanks": "Thank you for your comment.",
 	"comment_name_field": "Name",
@@ -25,7 +25,6 @@
 	"comment_comment_field": "Comment",
 	"comment_submit": "Send",
 	"comment_send_another": "Send Another",
-
 	"background_intro" : "Upstream, in the foggy highlands of <span id='item_cauca_river' class='highlighted_word'>Valley de Cauca, Colombia</span> , water flows from the biodiverse, native páramo grasslands and Andean forests, through steep pasturelands and small-scale agriculture, finally reaching low elevation, flat areas dominated by sugar cane fields.",
 	"background_watersheds": "Along the water’s path, many people—farmers, school communities, indigenous communities, and other rural land stewards—work to manage their lands to provide many benefits, including clean and ample water supplies. These people are the often poorly recognized ‘providers’ of the clean water that so many people in this area enjoy. The water fund Fundación Fondo de Agua por la Vida y la Sostenibilidad (Foundation Water fund for Life and Sustainability) supports and amplifies the work of these suppliers in their efforts protect and conserve water for everyone.",
 	"background_subwatersheds" : "The heart of this water fund are community-based river associations in each of the <span id='item_fifteen_watersheds' class='highlighted_word'> fifteen watersheds</span> where Agua por la Vida works. These community-based river associations work directly with the providers of clean water on watershed protection efforts. This website aims to ‘Put Suppliers on the Map’ by introducing the faces, places, and stories of the people working on the ground to protect and improve clean water. We focus first on the Bolo watershed where <span id='item_asobolo' class='highlighted_word'>Asobolo</span> (Association of water users of the Bolo river) works, highlighting key lessons from the perspective of suppliers.",
@@ -83,11 +82,11 @@
 	"caption_school_2" : "Asobolo’s Director, Amalia gives a talk on Earth’s Day.",
 	"caption_school_3" : "The school Mercedes Abrego in the Yellow Flowers community.",
 	"caption_school_4" : "Students of Mercedes Abrego School that participate in environmental education programs.",
-	"caption_esteban_1" : "Esteban showing some of his ornamental plants.",
-	"caption_esteban_2" : "View from Esteban’s farm.",
-	"caption_esteban_3" : "Orchids in Esteban’s farm.",
-	"caption_esteban_4" : "Esteban with native tree species that grow in his farm.",
-	"caption_esteban_5" : "Esteban with personnel of Asobolo.",
+	"caption_manuel_1" : "Esteban showing some of his ornamental plants.",
+	"caption_manuel_2" : "View from Esteban’s farm.",
+	"caption_manuel_3" : "Orchids in Esteban’s farm.",
+	"caption_manuel_4" : "Esteban with native tree species that grow in his farm.",
+	"caption_manuel_5" : "Esteban with personnel of Asobolo.",
 	"caption_community_1" : "Sacred stone and symbol of the Kwet Wala indigenous community.",
 	"caption_community_2" : "Member of the Kwet Wala community with the forest under their protection in the background.",
 	"caption_community_3" : "Members of Kwet Wala with Amalia, Asobolo’s Director and Pedro Moreno, Technical Director of Agua por la Vida, on top of the community’s sacred stone.",
@@ -127,7 +126,11 @@
 	"caption_employee_2": "Fabiola Giron is another nursery keeper that Asobolo considers as an indirect beneficiary of the jobs created by conservation of watershed programs.",
 	"caption_employee_3" : "Baudelino in a monitoring station that tracks water quality and quantity.",
 	"caption_employee_4" : "Along with scientists from the Center for Research of Sugarcane (Cenicaña), Baudelino helps collect rainfall data.",
-	"caption_employee_5" : "Baudelino in one of the rivers where a monitoring station sits to control water quantity and quality."
-
-
+	"caption_employee_5" : "Baudelino in one of the rivers where a monitoring station sits to control water quantity and quality.",
+  "caption_monitoring_1" : "Researcher Fanny Hoyos explains the monitoring system for the Agua Clara watershed.",
+	"caption_monitoring_2" : "Asobolo’s Amalia Morales organizes workshops with people from the community.",
+	"caption_monitoring_3" : "The researcher Fanny Hoyos explains protection and conservation of water resources in the upper part of the basin.",
+	"caption_monitoring_4" : "Asobolo organizes the collection and adequate disposal of agrochemical packages with toxic content in collaboration with other local private and public institutions.",
+	"caption_monitoring_5" : "Researcher Fanny Hoyos explains the monitoring system for the Agua Clara watershed.",
+	"caption_monitoring_6" : "The office of Asobolo where Amalia conducts meetings with aqueduct associations and other organizations of the community."
 }
