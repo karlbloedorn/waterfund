@@ -42,7 +42,7 @@
     "municipality": "Pradera",
     "twitter" : "asobolo",
     "facebook": null,
-    "website": null,
+    "website": "http://asobolo.org/",
     "email" : "asobolo@hotmail.com"
 },
 {
