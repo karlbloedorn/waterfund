@@ -18,6 +18,8 @@
 	"learn_more" : "Entender Mas",
 	"credits_title": "Reconocimientos y agradecimientos",
 	"credits": "Estamos muy agradecidos con cada uno de los participantes resaltados en este sitio web por compartir sus historias con nosotros y por su disposición a continuar compartiéndolas a través de este sitio web en un esfuerzo por comunicar las experiencias de las personas que participan en los programas de fondos de agua.<div class='paragraph-cut'></div>Agradecemos a Fanny Hoyos del Centro de Investigación de la Caña de Azúcar—Cenicaña y Pedro Morales por sus amables consejos y contribuciones a este proyecto. Un agradecimiento especial a Karl Bloedorn por donar su tiempo para diseñar este sitio web y proporcionar soporte técnico y capacitación.<div class='paragraph-cut'></div>Este proyecto fue posible a través de una beca semilla otorgado por el Instituto sobre el Medio Ambiente y el Proyecto Capital Natural de la Universidad de Minnesota.",
+  "about_title" : "Sobre el grupo",
+	"about" : "Kelly Meza Prado del Proyecto Capital Natural dirigió este proyecto en colaboración con Asobolo a través de su Directora, Amalia Morales Vargas, con el apoyo del proyecto de investigación ClimateWise, a través de Leah Bremer y Kate Brauman.<div class='paragraph-cut'></div>Kelly Meza Prado es una investigadora científica que trabaja en la intersección del medio ambiente y desarrollo humano. Originalmente de los Andes Peruanos, Kelly es investigadora en el Proyecto Capital Natural y la Escuela Humphrey de Asuntos Públicos con sede en la Universidad de Minnesota.",
 	"comment_ask": "Mándanos tus comentarios",
 	"comment_thanks": "Gracias por tu comentario",
 	"comment_name_field": "Nombre",
